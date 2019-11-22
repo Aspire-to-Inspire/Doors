@@ -25,7 +25,7 @@ position = Vector2( 40, 30 )
 position = Vector2( 40, 30 )
 
 [node name="PlayerSpawn3" type="Position2D" parent="Non-InteractiveTerrain"]
-position = Vector2( 40, 30 )
+position = Vector2( 62, 35 )
 
 [node name="InteractiveTerrain" type="TileMap" parent="."]
 z_index = -4096
@@ -37,7 +37,7 @@ tile_data = PoolIntArray( -458746, 8, 0 )
 script = ExtResource( 3 )
 
 [node name="TransitionZone" parent="InteractiveTerrain" instance=ExtResource( 4 )]
-position = Vector2( 130, 20 )
+position = Vector2( 129, 20 )
 target_scene = "res://Demo/Main.tscn"
 
 [node name="AlwaysOnTop" type="TileMap" parent="."]

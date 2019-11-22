@@ -20,9 +20,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InputSystem="*res://Scripts/Globals/InputSystem.gd"
+UI="*res://Scenes/UI.tscn"
 GameData="*res://Scripts/Globals/GameData.gd"
-UI="*res://Scripts/UI.gd"
+InputSystem="*res://Scripts/Globals/InputSystem.gd"
 
 [rendering]
 
