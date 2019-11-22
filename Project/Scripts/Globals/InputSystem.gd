@@ -11,12 +11,23 @@ func _ready():
 func _process(delta):
 	input_direction = get_input_direction()
 	input_activation = get_input_activation()
+	#==========================================================
+export var speed : float = 300
+
+onready var joystick_move := $UI/Joystick
 
 
+#=================================================================
 func get_input_direction():
 	var horizontal = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	var vertical = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-	return Vector2(horizontal, vertical if horizontal == 0 else 0)
+	
+	var dir = Vector2(0,0)
+	if joystick_move and joystick_move.is_working:
+		dir = joystick_move.output
+		
+	return dir
+	#Vector2(horizontal, vertical if horizontal == 0 else 0)
 
 
 func get_input_activation():

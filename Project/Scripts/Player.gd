@@ -13,3 +13,9 @@ func activate_object():
 	var direction_of_interaction = Vector2((int(dir == DIR.RIGHT) - int(
 			dir == DIR.LEFT)), (int(dir == DIR.DOWN) - int(dir == DIR.UP)))
 	overworld.request_interaction(self, direction_of_interaction)
+	
+
+
+
+
+
