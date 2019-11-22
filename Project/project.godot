@@ -25,12 +25,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InputSystem="*res://Scripts/Globals/InputSystem.gd"
+UI="*res://Scenes/UI.tscn"
 GameData="*res://Scripts/Globals/GameData.gd"
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
+InputSystem="*res://Scripts/Globals/InputSystem.gd"
 
 [rendering]
 

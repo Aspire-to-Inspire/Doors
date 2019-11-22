@@ -1,5 +1,5 @@
 extends "res://Scripts/Actor.gd"
-#var InputSystem = load("res://Scripts/Globals/InputSystem.gd") 
+
 func _process(delta):
 	if InputSystem.input_activation:
 		activate_object()
