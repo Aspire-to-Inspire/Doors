@@ -18,6 +18,12 @@ _global_script_class_icons={
 config/name="visualScriptingExample"
 config/icon="res://icon.png"
 
+[autoload]
+
+InputSystem="*res://Scripts/Globals/InputSystem.gd"
+GameData="*res://Scripts/Globals/GameData.gd"
+UI="*res://Scripts/UI.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
