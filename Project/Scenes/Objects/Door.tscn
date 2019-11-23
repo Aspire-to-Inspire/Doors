@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/room layout mockup.png" type="Texture" id=2]
+
+[node name="Door" type="Node2D" groups=[
+"actors",
+]]
+script = ExtResource( 1 )
+obj_type = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 96, 32, 32 )
