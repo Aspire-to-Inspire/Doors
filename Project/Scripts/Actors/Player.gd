@@ -25,3 +25,10 @@ func _move(delta: float) -> void:
 #					collision.get_collider().collided(self)
 	else:
 		$Ray.set_enabled(false)
+
+func hurt():
+	var progress = get_tree().get_root().get_node("Main/UI/Timer")
+	var timer = progress.get_node("Timer")
+	timer.stop()
+	progress.value = 0
+	print("LMAO YOU DED")

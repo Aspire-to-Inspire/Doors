@@ -1,6 +1,6 @@
 extends Node2D
 
-var level = preload("res://Scenes/Levels/Template.tscn")
+var level_index = 1
 
 func _ready():
 	set_player_to_spawn()
@@ -17,6 +17,13 @@ func load_next_level():
 		return
 	$Level.queue_free()
 	get_node("/root/Main").remove_child($Level)
+	level_index += 1
+	var level_string = "res://Scenes/Levels/Level%s.tscn" % level_index
+	var level = load(level_string)
+	if not level:
+		print("Reached final level!")
+		level_index = 0
+		return
 	var instance = level.instance()
 	instance.connect("level_win", self, "_on_Level_level_win")
 	add_child(instance)
