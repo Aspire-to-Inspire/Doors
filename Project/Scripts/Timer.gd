@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgress
 
 func _ready():
 	value = $Timer.wait_time
