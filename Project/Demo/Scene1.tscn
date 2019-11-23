@@ -50,3 +50,6 @@ tile_data = PoolIntArray( -196600, 6, 65537, -131064, 6, 65537, -1, 7, 196608, -
 
 [node name="PlayerSpawn0" type="Position2D" parent="Navigation2D/Non-InteractiveTerrain"]
 position = Vector2( 14.9328, 12.4118 )
+
+[node name="PlayerSpawn1" type="Position2D" parent="Navigation2D/Non-InteractiveTerrain"]
+position = Vector2( 136, -24 )
