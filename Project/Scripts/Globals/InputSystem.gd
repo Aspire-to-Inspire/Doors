@@ -14,6 +14,7 @@ func _process(delta):
 	input_direction = get_input_direction()
 	input_activation = get_input_activation()
 
+
 export var speed : float = 300
 onready var joystick_move = GUI.get_child(0)
 var dir = Vector2(0,0)
@@ -23,6 +24,10 @@ func get_input_direction():
 	#print(GUI.get_child().is_working)
 	if GUI.get_child(0) and GUI.get_child(0).is_working:
 		dir = GUI.get_child(0).output
+
+
+	
+	print(dir)
 	
 #	var horizontal = dir.x
 #	var vertical = dir.y

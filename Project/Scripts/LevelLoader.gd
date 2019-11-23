@@ -9,7 +9,7 @@ func _ready():
 func instantiate_player():
 	# This sets the player to appear at the correct area when loading into a new
 	# zone
-	var spawn_points = $"Navigation2D/Non-InteractiveTerrain".get_children()
+	var spawn_points = $"Non-InteractiveTerrain".get_children()
 	var index = GameData.zone_load_spawn_point
 
 	# If we somehow don't have that spawn point, fall back to 0
