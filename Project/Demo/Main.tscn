@@ -43,3 +43,4 @@ tile_data = PoolIntArray( 65538, 10, 0, 65539, 10, 0 )
 position = Vector2( -48, 16 )
 scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 5 )
+[connection signal="teleport" from="InteractiveTerrain/TransitionZone" to="InteractiveTerrain/TransitionZone" method="_on_TransitionZone_teleport"]

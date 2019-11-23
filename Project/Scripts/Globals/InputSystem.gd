@@ -24,12 +24,6 @@ func get_input_direction():
 	if GUI.get_child(0) and GUI.get_child(0).is_working:
 		dir = GUI.get_child(0).output
 
-	
-	print(dir)
-	
-#	var horizontal = dir.x
-#	var vertical = dir.y
-#	return Vector2(horizontal, vertical if horizontal == 0 else 0)
 	return dir
 
 var h = false

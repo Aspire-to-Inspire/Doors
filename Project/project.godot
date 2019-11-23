@@ -35,6 +35,7 @@ InputSystem="*res://Scripts/Globals/InputSystem.gd"
 GameData="*res://Scripts/Globals/GameData.gd"
 UI="*res://Scripts/UI.gd"
 GUI="*res://GUI.tscn"
+TimeBarGUI="*res://TimeBarGUI.tscn"
 
 [input_devices]
 
