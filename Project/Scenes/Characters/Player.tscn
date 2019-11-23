@@ -1,48 +1,16 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Characters/Player.tres" type="Animation" id=2]
-[ext_resource path="res://Scenes/Characters/aa.tres" type="Animation" id=3]
-[ext_resource path="res://Demo/character.png" type="Texture" id=4]
-
-[sub_resource type="Animation" id=3]
-resource_name = "walk_horiz"
-length = 0.4
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 6, 7, 4 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "walk_up"
-length = 0.4
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10, 11, 8 ]
-}
+[ext_resource path="res://Scenes/Characters/bump.tres" type="Animation" id=2]
+[ext_resource path="res://Scenes/Characters/walk_down.tres" type="Animation" id=3]
+[ext_resource path="res://Scenes/Characters/walk_hori.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/Characters/walk_up.tres" type="Animation" id=5]
+[ext_resource path="res://Demo/character.png" type="Texture" id=6]
 
 [node name="Player" type="Node2D" groups=[
 "actors",
 ]]
-position = Vector2( 10.1515, 9.22943 )
+position = Vector2( 8, 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -51,14 +19,14 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/bump = ExtResource( 2 )
 anims/walk_down = ExtResource( 3 )
-anims/walk_horiz = SubResource( 3 )
-anims/walk_up = SubResource( 4 )
+anims/walk_horiz = ExtResource( 4 )
+anims/walk_up = ExtResource( 5 )
 
 [node name="Pivot" type="Position2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
 position = Vector2( 0, -8 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 vframes = 3
 hframes = 4
 

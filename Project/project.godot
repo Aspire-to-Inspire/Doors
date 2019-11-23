@@ -13,15 +13,9 @@ _global_script_classes=[ {
 "class": "Joystick",
 "language": "GDScript",
 "path": "res://Joystick/Joystick.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Test/Player.gd"
 } ]
 _global_script_class_icons={
-"Joystick": "",
-"Player": ""
+"Joystick": ""
 }
 
 [application]
@@ -31,24 +25,15 @@ config/icon="res://icon.png"
 
 [autoload]
 
-<<<<<<< Updated upstream
-=======
 InputSystem="*res://Scripts/Globals/InputSystem.gd"
 GameData="*res://Scripts/Globals/GameData.gd"
 UI="*res://Scripts/UI.gd"
->>>>>>> Stashed changes
 GUI="*res://GUI.tscn"
-UI="*res://Scenes/UI.tscn"
-InputSystem="*res://Scripts/Globals/InputSystem.gd"
-GameData="*res://Scripts/Globals/GameData.gd"
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-<<<<<<< Updated upstream
-=======
 pointing/emulate_mouse_from_touch=false
->>>>>>> Stashed changes
 
 [rendering]
 

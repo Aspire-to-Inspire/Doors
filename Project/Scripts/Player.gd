@@ -1,14 +1,12 @@
 extends "res://Scripts/Actor.gd"
 
 
-
 onready var joy = GUI.get_child(0)
 func _ready():
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("zombies","set_player",self)
-	print(self.name)
+
 func _process(delta):
-	
 	if InputSystem.input_activation:
 		activate_object()
 	elif InputSystem.input_direction:

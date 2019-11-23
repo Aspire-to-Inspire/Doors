@@ -4,7 +4,7 @@ export var speed = 200
 
 # at which distance to stop moving
 # NOTE: setting this value too low might result in jerky movement near destination
-const eps = 0.2
+const eps = 0.8
 export var near = 10
 var player = null
 export var rad = 250
@@ -15,6 +15,7 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		return
+	#bump()
 	var playerpos = player.get_global_position()
 	var mypos = self.get_global_position()
 	var is_active:bool = (playerpos.x-mypos.x)*(playerpos.x-mypos.x) +(playerpos.y-mypos.y)*(playerpos.y-mypos.y)<=rad*rad
@@ -23,7 +24,7 @@ func _physics_process(delta):
 	
 	var vec_to_player = player.get_global_position() - global_position
 	vec_to_player = vec_to_player.normalized()
-	#global_rotation = atan2(vec_to_player.y,vec_to_player.x)
+	#global_rotation = atan2(vec_to_player.y,0)
 	
 	#move_and_collide(vec_to_player*MOVE_SPEED*delta)
 	movement(playerpos)
@@ -41,6 +42,8 @@ func movement(playerpos):
 		var distance = points[1] - get_global_position()
 		var direction = distance.normalized() # direction of movement
 		if distance.length() > eps or points.size() > 2:
+			#up()
+	
 			set_linear_velocity(direction*speed)
 		else:
 			set_linear_velocity(Vector2(0, 0)) # close enough - stop moving
@@ -53,3 +56,27 @@ func zombie_is_near():
 	var px = get_global_position() - player.get_global_position()
 	if(px.length() < near):
 		kill()
+		
+func up():
+	set_process(false)
+	$AnimationPlayer.play("walk_up")
+	yield($AnimationPlayer, "animation_finished")
+	set_process(true)
+	
+func right():
+	set_process(false)
+	$AnimationPlayer.play("walk_hori")
+	yield($AnimationPlayer, "animation_finished")
+	set_process(true)	
+	
+func left():
+	set_process(false)
+	$AnimationPlayer.play("walk_hori")
+	yield($AnimationPlayer, "animation_finished")
+	set_process(true)	
+	
+func down():
+	set_process(false)
+	$AnimationPlayer.play("walk_down")
+	yield($AnimationPlayer, "animation_finished")
+	set_process(true)	
