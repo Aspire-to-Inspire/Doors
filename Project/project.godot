@@ -8,15 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "Joystick",
+"language": "GDScript",
+"path": "res://Joystick/Joystick.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Test/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Joystick": "",
+"Player": ""
 }
 
 [application]
 
 config/name="visualScriptingExample"
+run/main_scene="res://Demo/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+InputSystem="*res://Scripts/Globals/InputSystem.gd"
+GameData="*res://Scripts/Globals/GameData.gd"
+UI="*res://Scripts/UI.gd"
+GUI="*res://GUI.tscn"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
