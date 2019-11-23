@@ -6,11 +6,12 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="PLayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 488.728, 332.426 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Joystick" parent="UI" instance=ExtResource( 2 )]
-margin_left = -104.0
-margin_top = 192.0
-margin_right = -628.0
-margin_bottom = 92.0
+margin_left = -66.3165
+margin_top = 146.78
+margin_right = -590.316
+margin_bottom = 46.7798

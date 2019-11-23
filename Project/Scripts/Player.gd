@@ -1,10 +1,14 @@
 extends "res://Scripts/Actor.gd"
 
+
+
 func _process(delta):
+	print(Joystick.is_working)
 	if InputSystem.input_activation:
 		activate_object()
 	elif InputSystem.input_direction:
 		target_position(InputSystem.input_direction)
+		
 
 
 # Make a vector of the direction we're facing, then ask the grid to interact
