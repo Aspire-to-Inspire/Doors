@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Sprites/mockup room test.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -11,17 +12,14 @@ position = Vector2( -2, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 262145, 0, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, -1610612736, 0, 327681, -1073741821, 0, 327682, 4, 0, 327683, 4, 0, 327684, 4, 0, 327685, 4, 0, 327686, -1610612733, 0, 393217, -1073741821, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, -1610612733, 0, 458753, -1073741821, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, -1610612733, 0, 524289, -1073741821, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, -1610612733, 0, 589825, -1073741824, 0, 589826, 1610612739, 0, 589827, 1610612739, 0, 589828, 1610612739, 0, 589829, 1610612739, 0, 589830, 1610612736, 0 )
+tile_data = PoolIntArray( 262145, 0, 0, 262146, 3, 0, 262147, 4, 0, 262148, 4, 0, 262149, 3, 0, 262150, -1610612736, 0, 327681, -1073741821, 0, 327682, 4, 0, 327683, 4, 0, 327684, 4, 0, 327685, 4, 0, 327686, -1610612733, 0, 393217, -1073741821, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, -1610612733, 0, 458753, -1073741821, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, -1610612733, 0, 524289, -1073741821, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, -1610612733, 0, 589825, -1073741824, 0, 589826, 1610612739, 0, 589827, 4, 0, 589828, 4, 0, 589829, 1610612739, 0, 589830, 1610612736, 0 )
 
 [node name="mockup room test" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 2 )
 centered = false
 
-[node name="UI" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128, 268 )
 
-[node name="Joystick" parent="UI" index="0"]
-margin_right = 252.0
-margin_bottom = 448.0
-
-[editable path="UI"]
+[node name="UI" parent="." instance=ExtResource( 4 )]
