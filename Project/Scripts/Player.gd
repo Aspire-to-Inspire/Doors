@@ -1,5 +1,5 @@
 extends "res://Scripts/Actor.gd"
-#var InputSystem = load("res://Scripts/Globals/InputSystem.gd") 
+
 func _process(delta):
 	if InputSystem.input_activation:
 		activate_object()
@@ -13,9 +13,3 @@ func activate_object():
 	var direction_of_interaction = Vector2((int(dir == DIR.RIGHT) - int(
 			dir == DIR.LEFT)), (int(dir == DIR.DOWN) - int(dir == DIR.UP)))
 	overworld.request_interaction(self, direction_of_interaction)
-	
-
-
-
-
-
