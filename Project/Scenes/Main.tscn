@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/Sprites/mockup room test.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
 position = Vector2( -2, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -23,3 +26,6 @@ centered = false
 position = Vector2( 128, 268 )
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
+position = Vector2( 94, 128 )

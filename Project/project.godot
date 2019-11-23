@@ -30,13 +30,6 @@ config/name="visualScriptingExample"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-InputSystem="*res://Scripts/Globals/InputSystem.gd"
-GameData="*res://Scripts/Globals/GameData.gd"
-UI="*res://Scripts/UI.gd"
-GUI="*res://GUI.tscn"
-
 [display]
 
 window/size/width=252
