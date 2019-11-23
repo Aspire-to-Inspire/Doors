@@ -1,10 +1,14 @@
 extends "res://Scripts/Actor.gd"
 
+
+onready var joy = GUI.get_child(0)
 func _process(delta):
+	
 	if InputSystem.input_activation:
 		activate_object()
 	elif InputSystem.input_direction:
 		target_position(InputSystem.input_direction)
+		
 
 
 # Make a vector of the direction we're facing, then ask the grid to interact
