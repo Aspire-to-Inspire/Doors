@@ -6,7 +6,7 @@ var input_activation
 func _ready():
 	# Do not disable this when game is paused
 	set_pause_mode(PAUSE_MODE_PROCESS)
-	print(Joystick)
+	
 
 
 
@@ -15,23 +15,34 @@ func _process(delta):
 	input_activation = get_input_activation()
 
 export var speed : float = 300
-onready var joystick_move = Joystick
+onready var joystick_move = GUI.get_child(0)
+var dir = Vector2(0,0)
 #onready var joystick_move := load(
 func get_input_direction():
-	var dir = Vector2()
-	#print(Joystick.is_working)
-	if Joystick: #and Joystick.is_working:
-		dir = joystick_move.output
-		#print(dir)
-#	var horizontal = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-#	var vertical = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+	
+	#print(GUI.get_child().is_working)
+	if GUI.get_child(0) and GUI.get_child(0).is_working:
+		dir = GUI.get_child(0).output
+
+	
+	print(dir)
+	
+#	var horizontal = dir.x
+#	var vertical = dir.y
 #	return Vector2(horizontal, vertical if horizontal == 0 else 0)
 	return dir
 
-
+var h = false
 func get_input_activation():
 #	return Input.is_action_just_pressed("ui_accept")
-	return joystick_move and joystick_move.is_working
+	h = joystick_move and joystick_move.is_working
+	if h:
+		return false
+	else:
+		dir = Vector2.ZERO	
+	return  joystick_move and joystick_move.is_working
+		
+		
 
 
 # Extremely useful for things like stopping "interact" from looping

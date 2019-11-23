@@ -1,9 +1,9 @@
 extends "res://Scripts/Actor.gd"
 
 
-
+onready var joy = GUI.get_child(0)
 func _process(delta):
-	print(Joystick.is_working)
+	
 	if InputSystem.input_activation:
 		activate_object()
 	elif InputSystem.input_direction:
