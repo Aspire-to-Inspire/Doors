@@ -16,6 +16,8 @@ func load_next_level():
 	if not $Level:
 		return
 	$Level.queue_free()
+	if $Follower:
+		$Follower.queue_free()
 	get_node("/root/Main").remove_child($Level)
 	level_index += 1
 	var level_string = "res://Scenes/Levels/Level%s.tscn" % level_index
@@ -30,3 +32,10 @@ func load_next_level():
 	instance.set_name("Level")
 	move_child(instance, 0)
 	set_player_to_spawn()
+
+func timeout():
+	print("TIME OUT")
+	var enemy = preload("res://Scenes/Actors/Follower.tscn")
+	var instance = enemy.instance()
+	add_child(instance)
+	instance.set_transform($Level/PlayerSpawn.get_global_transform())

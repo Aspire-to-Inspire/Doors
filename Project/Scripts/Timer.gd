@@ -8,4 +8,4 @@ func _process(delta):
 	value = $Timer.time_left
 
 func _on_Timer_timeout():
-	print("you are dead, dead, dead")
+	get_tree().get_root().get_node("Main").timeout()
