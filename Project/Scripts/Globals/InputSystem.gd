@@ -23,10 +23,14 @@ func get_input_direction():
 	#print(GUI.get_child().is_working)
 	if GUI.get_child(0) and GUI.get_child(0).is_working:
 		dir = GUI.get_child(0).output
+<<<<<<< Updated upstream
 	
 #	var horizontal = dir.x
 #	var vertical = dir.y
 #	return Vector2(horizontal, vertical if horizontal == 0 else 0)
+=======
+
+>>>>>>> Stashed changes
 	return dir
 
 var h = false
