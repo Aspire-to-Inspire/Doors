@@ -8,4 +8,4 @@ func print_when_ur_ded():
 	self.visible = true
 	
 func _on_Button_pressed():
-	pass
+	get_tree().change_scene("res://Scenes/Menu.tscn")

@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=1]
-[ext_resource path="res://Resources/Sprites/progress_over.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Timer.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Joystick/Joystick.tscn" type="PackedScene" id=4]
-[ext_resource path="res://The_End.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Sprites/progress_over.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Timer.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Joystick/Joystick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://The_End.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=7]
 
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -46,9 +50,39 @@ rect_min_size = Vector2( 0, 180 )
 size_flags_vertical = 10
 joystick_mode = 1
 
-[node name="END" parent="." instance=ExtResource( 5 )]
-visible = false
+[node name="Pause" type="Button" parent="."]
+margin_left = 84.7
+margin_top = 22.0
+margin_right = 124.7
+margin_bottom = 42.0
 
+[node name="The_End" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = 0.449982
+margin_top = 1.20001
+margin_right = -1.55002
+margin_bottom = 2.20001
+
+[node name="Resume" type="Button" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 39.25
+margin_top = 181.7
+margin_right = 213.25
+margin_bottom = 238.7
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Resume"]
+margin_left = 0.949982
+margin_top = -0.949982
+margin_right = 175.95
+margin_bottom = 57.05
+custom_fonts/font = SubResource( 1 )
+text = "Resume"
+align = 1
+valign = 1
 [connection signal="timeout" from="Timer/Timer" to="Timer" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
