@@ -6,7 +6,7 @@ var levels = [
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
-#	preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	#preload("res://Scenes/Levels/Mines/Level4.tscn"),
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 	preload("res://Scenes/Levels/City/Pick1.tscn"),
 ]
@@ -78,3 +78,4 @@ func timeout():
 	var instance = enemy.instance()
 	add_child(instance)
 	instance.set_transform($Level/EnemySpawn.get_global_transform())
+	play_music("monster")

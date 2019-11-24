@@ -1,3 +1,4 @@
+
 extends "res://Scripts/Actors/Actor.gd"
 
 export var speed : float = 50

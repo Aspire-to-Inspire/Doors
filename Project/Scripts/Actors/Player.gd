@@ -37,6 +37,6 @@ func hurt():
 		$AnimationPlayer.play("dead")
 		set_physics_process(false)
 		dead = true
-
+		
 func dying_finished():
 	emit_signal("Killed")
