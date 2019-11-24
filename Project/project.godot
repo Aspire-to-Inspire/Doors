@@ -27,11 +27,9 @@ _global_script_class_icons={
 [application]
 
 config/name="visualScriptingExample"
-
 config/icon="res://icon.png"
 
 [display]
-
 
 window/size/width=252
 window/size/height=448
@@ -61,7 +59,6 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
-
 
 [input_devices]
 
