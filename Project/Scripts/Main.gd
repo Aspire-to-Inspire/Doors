@@ -12,6 +12,7 @@ var levels = [
 func _ready():
 	load_next_level()
 	set_player_to_spawn()
+	$UI/Score.text = str(level_index)
 
 func set_player_to_spawn():
 	$Player.set_transform($Level/PlayerSpawn.get_global_transform())
@@ -28,7 +29,7 @@ func load_next_level():
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
 	level_index += 1
-	print(level_index)
+	$UI/Score.text = str(level_index)
 	var level
 	if level_index >= levels.size():
 		print("Reached final level! Randomizing...")

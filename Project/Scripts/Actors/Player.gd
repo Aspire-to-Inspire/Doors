@@ -1,6 +1,8 @@
-extends KinematicBody2D
+extends "res://Scripts/Actors/Actor.gd"
 
 class_name Player
+
+signal Killed
 
 export var speed : float = 150
 var dead : bool = false
@@ -32,18 +34,9 @@ func _move(delta: float) -> void:
 
 func hurt():
 	if not dead:
-		set_visible(false)
+		$AnimationPlayer.play("dead")
 		set_physics_process(false)
-		print("LMAO YOU DED")
 		dead = true
 
-var directions = ["upright", "downright", "downleft", "upleft"]
-func direction2str(direction):
-	var angle = direction.angle()
-	angle += PI/4
-	if angle < 0:
-		angle += 2 * PI
-	var index = round((angle / PI) * 2)
-	if index >= 4:
-		index = 0
-	return directions[index]
+func dying_finished():
+	emit_signal("Killed")

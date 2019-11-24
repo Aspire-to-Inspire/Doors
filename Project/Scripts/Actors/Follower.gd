@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://Scripts/Actors/Actor.gd"
 
 export var speed : float = 50
 
@@ -12,6 +12,8 @@ func _move(delta: float) -> void:
 
 	var direction = vec_to_player.normalized()
 	var slide = move_and_slide(direction*speed)
+	var walk = direction2str(slide.normalized())
+	$AnimationPlayer.play(walk)
 	if slide and get_slide_count() != 0:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
