@@ -12,10 +12,12 @@ var levels = [
 ]
 
 var music = {
-	"monster": preload("res://Resources/music/монстр.wav"),
-	"first": preload("res://Resources/music/Первая локация.wav"),
-	"second": preload("res://Resources/music/Вторая локация.wav"),
-	"third": preload("res://Resources/music/Третья локация.wav"),
+	"monster": preload("res://Resources/music/ogg/monster.ogg"),
+	"first": preload("res://Resources/music/ogg/first.ogg"),
+	"second": preload("res://Resources/music/ogg/second.ogg"),
+	"third": preload("res://Resources/music/ogg/third.ogg"),
+	"transition": preload("res://Resources/music/ogg/transition.ogg"),
+	"death": preload("res://Resources/music/ogg/death.ogg"),
 }
 
 var current_track = ""
@@ -59,9 +61,9 @@ func load_next_level():
 	
 	if level_index < 15 and current_track != "first":
 		play_music("first")
-	elif level_index < 30 and current_track != "second":
+	elif level_index >= 15 and level_index < 30 and current_track != "second":
 		play_music("second")
-	elif current_track != "third":
+	elif level_index >= 30 and current_track != "third":
 		play_music("third")
 
 func play_music(track):
