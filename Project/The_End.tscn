@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://The_End.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/button.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/music/Смерть.wav" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -26,6 +27,7 @@ size = 38
 font_data = ExtResource( 4 )
 
 [node name="The_End" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
@@ -53,4 +55,8 @@ margin_bottom = 131.788
 custom_fonts/font = SubResource( 5 )
 text = "U R Gay
 "
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

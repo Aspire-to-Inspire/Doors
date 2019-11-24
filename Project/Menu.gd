@@ -6,10 +6,12 @@ onready var menu_music = $Audio
 func _ready():
 	#get_tree().get_root().get_node("")
 	menu_music.play()
+	
 
 
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Scenes/Main.tscn")
+	get_tree().paused = false
 	print("button pressed")
 

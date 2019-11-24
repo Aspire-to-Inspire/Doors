@@ -2,6 +2,7 @@ extends Node2D
 
 var level_index = 1
 onready var game_music = $ms
+onready var monster = $monstr
 func _ready():
 	game_music.play()
 	set_player_to_spawn()
@@ -36,6 +37,8 @@ func load_next_level():
 
 func timeout():
 	print("TIME OUT")
+	game_music.stop()
+	monster.play()
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
 	var instance = enemy.instance()
 	add_child(instance)
