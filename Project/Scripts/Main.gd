@@ -8,6 +8,7 @@ var levels = [
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
 #	preload("res://Scenes/Levels/Mines/Level4.tscn"),
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
+	preload("res://Scenes/Levels/City/Pick1.tscn"),
 ]
 
 onready var game_music = $music
