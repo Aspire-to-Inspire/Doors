@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/тртья.ogg-09738804f0a271b29f9ad191e67ad2ec.oggstr"
+
+[deps]
+
+source_file="res://Resources/music/ogg/тртья.ogg"
+dest_files=[ "res://.import/тртья.ogg-09738804f0a271b29f9ad191e67ad2ec.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

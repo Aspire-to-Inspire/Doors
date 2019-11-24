@@ -19,6 +19,7 @@ position = Vector2( 128, 268 )
 pause_mode = 2
 
 [node name="ms" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 5 )
 autoplay = true
 

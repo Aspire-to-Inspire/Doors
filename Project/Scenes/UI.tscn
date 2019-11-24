@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=7]
 [ext_resource path="res://The_End.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=9]
-[ext_resource path="res://Resources/music/menu.wav" type="AudioStream" id=10]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 6 )
@@ -120,9 +119,6 @@ custom_fonts/font = SubResource( 7 )
 text = "Resume"
 align = 1
 valign = 1
-
-[node name="resume" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
 [connection signal="timeout" from="Timer/Timer" to="Timer" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
