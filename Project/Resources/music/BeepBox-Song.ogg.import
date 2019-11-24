@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BeepBox-Song.ogg-ab539f85615c7b553ecaac2f9d1b8959.oggstr"
+
+[deps]
+
+source_file="res://Resources/music/BeepBox-Song.ogg"
+dest_files=[ "res://.import/BeepBox-Song.ogg-ab539f85615c7b553ecaac2f9d1b8959.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

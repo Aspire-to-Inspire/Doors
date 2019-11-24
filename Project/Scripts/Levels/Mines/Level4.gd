@@ -3,7 +3,10 @@ extends "res://Scripts/Levels/Base.gd"
 var doors = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 var shuffled = false
 
+export var texture = preload("res://Resources/Sprites/bg_cave.png")
+
 func _ready():
+	get_tree().get_root().get_node("Main/bg").texture = texture 
 	randomize() 
 	doors.shuffle()
 	for i in doors.size():

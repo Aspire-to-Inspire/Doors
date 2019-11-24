@@ -2,6 +2,7 @@ extends Node2D
 
 var level_index = -1
 var levels = [
+	preload("res://Scenes/Levels/Intro.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
@@ -9,8 +10,7 @@ var levels = [
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 ]
 
-var level_index = 1
-onready var game_music = $ms
+onready var game_music = $music
 func _ready():
 	load_next_level()
 	game_music.play()

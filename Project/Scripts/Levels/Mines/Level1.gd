@@ -1,6 +1,9 @@
 extends "res://Scripts/Levels/Base.gd"
 
+export var texture = preload("res://Resources/Sprites/bg_cave.png")
+
 func _ready():
+	get_tree().get_root().get_node("Main/bg").texture = texture 
 	randomize()
 	var idx = (randi() % 3) + 1
 	print(idx)
