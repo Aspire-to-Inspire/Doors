@@ -11,12 +11,21 @@ var levels = [
 	preload("res://Scenes/Levels/City/Pick1.tscn"),
 ]
 
+var music = {
+	"monster": preload("res://Resources/music/монстр.wav"),
+	"first": preload("res://Resources/music/Первая локация.wav"),
+	"second": preload("res://Resources/music/Вторая локация.wav"),
+	"third": preload("res://Resources/music/Третья локация.wav"),
+}
+
+var current_track = ""
+
 onready var game_music = $music
 func _ready():
 	load_next_level()
-	game_music.play()
 	set_player_to_spawn()
 	$UI/Score.text = str(level_index)
+	play_music("first")
 
 func set_player_to_spawn():
 	$Player.set_transform($Level/PlayerSpawn.get_global_transform())
@@ -47,6 +56,18 @@ func load_next_level():
 	instance.set_name("Level")
 	move_child(instance, 0)
 	set_player_to_spawn()
+	
+	if level_index < 15 and current_track != "first":
+		play_music("first")
+	elif level_index < 30 and current_track != "second":
+		play_music("second")
+	elif current_track != "third":
+		play_music("third")
+
+func play_music(track):
+	game_music.stream = music[track]
+	game_music.play()
+	current_track = track
 
 func timeout():
 	print("TIME OUT")
