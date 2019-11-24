@@ -31,7 +31,7 @@ stretch_margin_bottom = 2
 script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="Timer"]
-wait_time = 15.0
+wait_time = 10.0
 autostart = true
 
 [node name="Joystick" parent="." instance=ExtResource( 4 )]

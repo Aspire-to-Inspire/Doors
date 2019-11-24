@@ -27,8 +27,6 @@ func _move(delta: float) -> void:
 		$Ray.set_enabled(false)
 
 func hurt():
-	var progress = get_tree().get_root().get_node("Main/UI/Timer")
-	var timer = progress.get_node("Timer")
-	timer.stop()
-	progress.value = 0
+	set_visible(false)
+	set_physics_process(false)
 	print("LMAO YOU DED")
