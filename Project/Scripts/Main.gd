@@ -2,10 +2,11 @@ extends Node2D
 
 var level_index = -1
 var levels = [
-	preload("res://Scenes/Levels/Level1.tscn"),
-	preload("res://Scenes/Levels/Level2.tscn"),
-	preload("res://Scenes/Levels/Level3.tscn"),
-#	preload("res://Scenes/Levels/Level4.tscn"),
+	preload("res://Scenes/Levels/Mines/Level1.tscn"),
+	preload("res://Scenes/Levels/Mines/Level2.tscn"),
+	preload("res://Scenes/Levels/Mines/Level3.tscn"),
+#	preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 ]
 
 func _ready():
@@ -23,7 +24,7 @@ func load_next_level():
 	if $Level:
 		$Level.queue_free()
 		get_node("/root/Main").remove_child($Level)
-	if find_node("Follower"):
+	if $Follower:
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
 	level_index += 1
