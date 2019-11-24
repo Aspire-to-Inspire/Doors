@@ -1,24 +1,42 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Sprites/progress_over.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Timer.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Joystick/Joystick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=6]
-[ext_resource path="res://The_End.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=8]
+[ext_resource path="res://Resources/Sprites/button.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=7]
+[ext_resource path="res://The_End.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=9]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 230, 68 )
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 230, 68 )
 
 [sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 230, 68 )
 
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 8 )
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 37
+font_data = ExtResource( 9 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -62,14 +80,15 @@ size_flags_vertical = 10
 joystick_mode = 1
 
 [node name="Pause" type="Button" parent="."]
-margin_left = 217.95
-margin_top = 8.85001
-margin_right = 244.95
-margin_bottom = 33.85
+margin_left = 220.0
+margin_top = 9.0
+margin_right = 247.0
+margin_bottom = 34.0
+custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="The_End" parent="." instance=ExtResource( 7 )]
+[node name="The_End" parent="." instance=ExtResource( 8 )]
 visible = false
 margin_left = 0.449982
 margin_top = 1.20001
@@ -79,20 +98,24 @@ margin_bottom = 2.20001
 [node name="Resume" type="Button" parent="."]
 pause_mode = 2
 visible = false
-margin_left = 39.25
-margin_top = 181.7
-margin_right = 213.25
-margin_bottom = 238.7
+margin_left = 39.0
+margin_top = 345.0
+margin_right = 288.0
+margin_bottom = 409.0
+rect_scale = Vector2( 0.733333, 1.215 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Resume"]
-margin_left = 0.949982
-margin_top = -0.949982
-margin_right = 175.95
-margin_bottom = 57.05
-custom_fonts/font = SubResource( 2 )
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 247.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 7 )
 text = "Resume"
 align = 1
 valign = 1

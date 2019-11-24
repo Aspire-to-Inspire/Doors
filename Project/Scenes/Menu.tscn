@@ -1,18 +1,26 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/menu.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprites/button.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 4 )
-region_rect = Rect2( -5.00003, -4, 249, 72 )
-margin_right = 249.0
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 230, 68 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 42
@@ -41,11 +49,13 @@ valign = 1
 autowrap = true
 
 [node name="Start" type="Button" parent="."]
-margin_left = 33.0
+margin_left = 39.0
 margin_top = 345.0
-margin_right = 282.0
+margin_right = 288.0
 margin_bottom = 409.0
 rect_scale = Vector2( 0.733333, 1.215 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 
 [node name="Label" type="Label" parent="Start"]
