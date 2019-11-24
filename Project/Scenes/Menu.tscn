@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/menu.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://Resources/Sprites/button.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=5]
+[ext_resource path="res://Resources/music/menu.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -68,4 +69,8 @@ custom_fonts/font = SubResource( 3 )
 text = "Start "
 align = 1
 valign = 1
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]

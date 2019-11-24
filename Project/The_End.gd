@@ -9,4 +9,5 @@ func print_when_ur_ded():
 	self.visible = true
 	
 func _on_Button_pressed():
+	get_tree().paused = false
 	get_tree().change_scene("res://Scenes/Menu.tscn")

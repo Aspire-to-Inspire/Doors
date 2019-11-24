@@ -1,8 +1,9 @@
 extends Node2D
 
 var level_index = 1
-
+onready var game_music = $ms
 func _ready():
+	game_music.play()
 	set_player_to_spawn()
 
 func set_player_to_spawn():
