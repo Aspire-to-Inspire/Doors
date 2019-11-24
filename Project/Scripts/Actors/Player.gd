@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 class_name Player
-
+signal UR_DED
 export var speed : float = 150
 
 onready var joystick_move := get_tree().get_root().get_node("Main/UI/Joystick")
+
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -31,4 +32,4 @@ func hurt():
 	var timer = progress.get_node("Timer")
 	timer.stop()
 	progress.value = 0
-	print("LMAO YOU DED")
+	emit_signal("UR_DED")
