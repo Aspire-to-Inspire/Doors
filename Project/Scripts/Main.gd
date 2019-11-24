@@ -9,8 +9,11 @@ var levels = [
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 ]
 
+var level_index = 1
+onready var game_music = $ms
 func _ready():
 	load_next_level()
+	game_music.play()
 	set_player_to_spawn()
 	$UI/Score.text = str(level_index)
 

@@ -1,10 +1,11 @@
 extends Control
 
 class_name Menu
-
+onready var menu_music = $Audio
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().get_root().get_node("")
+	#get_tree().get_root().get_node("")
+	menu_music.play()
 
 
 
