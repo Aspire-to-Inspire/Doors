@@ -37,6 +37,9 @@ door_type = 1
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( 79, 143 )
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 111, 143 )
 [connection signal="state_changed" from="Door" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="WinDoor1" to="." method="_on_WinDoor_state_changed"]
 [connection signal="state_changed" from="WinDoor2" to="." method="_on_WinDoor_state_changed"]

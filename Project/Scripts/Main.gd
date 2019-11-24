@@ -1,6 +1,6 @@
 extends Node2D
 
-var level_index = 0
+var level_index = -1
 var levels = [
 	preload("res://Scenes/Levels/Level1.tscn"),
 	preload("res://Scenes/Levels/Level2.tscn"),
@@ -8,6 +8,7 @@ var levels = [
 ]
 
 func _ready():
+	load_next_level()
 	set_player_to_spawn()
 
 func set_player_to_spawn():
@@ -18,13 +19,14 @@ func _on_Level_level_win():
 	call_deferred("load_next_level")
 
 func load_next_level():
-	if not $Level:
-		return
-	$Level.queue_free()
-	if $Follower:
+	if $Level:
+		$Level.queue_free()
+		get_node("/root/Main").remove_child($Level)
+	if find_node("Follower"):
 		$Follower.queue_free()
-	get_node("/root/Main").remove_child($Level)
+		get_node("/root/Main").remove_child($Follower)
 	level_index += 1
+	print(level_index)
 	var level
 	if level_index >= levels.size():
 		print("Reached final level! Randomizing...")
@@ -45,4 +47,4 @@ func timeout():
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
 	var instance = enemy.instance()
 	add_child(instance)
-	instance.set_transform($Level/PlayerSpawn.get_global_transform())
+	instance.set_transform($Level/EnemySpawn.get_global_transform())

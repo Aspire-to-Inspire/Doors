@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 export var speed : float = 150
+var dead : bool = false
 
 onready var joystick_move := get_tree().get_root().get_node("Main/UI/Joystick")
 
@@ -27,6 +28,8 @@ func _move(delta: float) -> void:
 		$Ray.set_enabled(false)
 
 func hurt():
-	set_visible(false)
-	set_physics_process(false)
-	print("LMAO YOU DED")
+	if not dead:
+		set_visible(false)
+		set_physics_process(false)
+		print("LMAO YOU DED")
+		dead = true

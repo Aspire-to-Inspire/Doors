@@ -4,7 +4,7 @@ export var health = 50
 #0 = wrong door, 1 = right door, 2 = trigger door
 export(int) var door_type = 0
 
-signal state_changed(toggle)
+signal state_changed(door, toggle)
 
 var opened: bool = false
 
@@ -22,7 +22,7 @@ func collided(player):
 			$Collision.set_disabled(true)
 		elif door_type == 0:
 			$Bricked.set_visible(true)
-		emit_signal("state_changed", opened)
+		emit_signal("state_changed", self, opened)
 	elif health > 0:
 		$Animation.play("punch")
 		health -= 1
