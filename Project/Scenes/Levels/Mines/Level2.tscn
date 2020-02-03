@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Levels/Mines/Level2.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Trigger.tscn" type="PackedScene" id=4]
+
+
+[node name="Level" type="Node2D"]
+position = Vector2( 48, 76 )
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, -1610612735, 0, 65536, -1073741819, 0, 65537, 1610612742, 0, 65538, 1610612742, 0, 65539, 1610612742, 0, 65540, -1610612731, 0, 131072, -1073741819, 0, 131073, 1610612742, 0, 131074, 8, 0, 131075, 1610612742, 0, 131076, -1610612731, 0, 196608, -1073741819, 0, 196609, 1610612742, 0, 196610, 1610612742, 0, 196611, 1610612742, 0, 196612, -1610612731, 0, 262144, -1073741819, 0, 262145, 1610612742, 0, 262146, 1610612742, 0, 262147, 1610612742, 0, 262148, -1610612731, 0, 327680, -1073741823, 0, 327681, 1610612741, 0, 327682, 1610612741, 0, 327683, 1610612741, 0, 327684, 1610612737, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 63, 0 )
+door_type = 1
+
+[node name="Trigger" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80, 80 )
+
+[node name="PlayerSpawn" type="Position2D" parent="."]
+position = Vector2( 79, 143 )
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 111, 143 )
+[connection signal="state_changed" from="Door" to="." method="_on_Door_state_changed"]
+[connection signal="trigger_entered" from="Trigger" to="." method="_on_Trigger_entered"]

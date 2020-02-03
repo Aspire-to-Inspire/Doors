@@ -1,11 +1,13 @@
-extends KinematicBody2D
+extends "res://Scripts/Actors/Actor.gd"
 
 class_name Player
-signal UR_DED
+
+signal Killed
+
 export var speed : float = 150
+var dead : bool = false
 
 onready var joystick_move := get_tree().get_root().get_node("Main/UI/Joystick")
-
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -19,6 +21,8 @@ func _move(delta: float) -> void:
 			var collision = $Ray.get_collider()
 			if collision and collision.has_method("collided"):
 				collision.collided(self)
+		var walk = direction2str(slide.normalized())
+		$AnimationPlayer.play(walk)
 #		if slide and get_slide_count() != 0:
 #			for i in get_slide_count():
 #				var collision = get_slide_collision(i)
@@ -26,10 +30,13 @@ func _move(delta: float) -> void:
 #					collision.get_collider().collided(self)
 	else:
 		$Ray.set_enabled(false)
+		$AnimationPlayer.stop()
 
 func hurt():
-	var progress = get_tree().get_root().get_node("Main/UI/Timer")
-	var timer = progress.get_node("Timer")
-	timer.stop()
-	progress.value = 0
-	emit_signal("UR_DED")
+	if not dead:
+		$AnimationPlayer.play("dead")
+		set_physics_process(false)
+		dead = true
+
+func dying_finished():
+	emit_signal("Killed")

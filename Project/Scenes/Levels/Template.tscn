@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Levels/Template.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Levels/Base.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Objects/Trigger.tscn" type="PackedScene" id=4]
@@ -30,4 +30,7 @@ position = Vector2( 80, -16 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( 79, 143 )
-[connection signal="triggered" from="Trigger" to="." method="_on_Trigger_triggered"]
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 111, 143 )
+[connection signal="trigger_entered" from="Trigger" to="." method="_on_win"]
