@@ -11,19 +11,19 @@
 size = 40
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 230, 68 )
-
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 230, 68 )
-
 [sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 230, 68 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 42
 font_data = ExtResource( 3 )
 
@@ -55,9 +55,9 @@ margin_top = 345.0
 margin_right = 288.0
 margin_bottom = 409.0
 rect_scale = Vector2( 0.733333, 1.215 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 
 [node name="Label" type="Label" parent="Start"]
 margin_left = 9.72728
@@ -65,7 +65,7 @@ margin_top = 3.06171
 margin_right = 160.727
 margin_bottom = 51.0617
 rect_scale = Vector2( 1.49091, 1.09877 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "Start "
 align = 1
 valign = 1
