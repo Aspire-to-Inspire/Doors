@@ -2,11 +2,14 @@ extends Node2D
 
 var level_index = -1
 var levels = [
+	preload("res://Scenes/Levels/Track_Test.tscn"),
+	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Intro.tscn"),
+	preload("res://Scenes/Levels/WindLevel.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
-	#preload("res://Scenes/Levels/Mines/Level4.tscn"),
+#	preload("res://Scenes/Levels/Mines/Level4.tscn"),
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 	preload("res://Scenes/Levels/City/Pick1.tscn"),
 ]
@@ -74,8 +77,8 @@ func play_music(track):
 func timeout():
 	print("TIME OUT")
 	$UI/Timer/Timer.stop()
+	play_music("monster")
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
 	var instance = enemy.instance()
 	add_child(instance)
 	instance.set_transform($Level/EnemySpawn.get_global_transform())
-	play_music("monster")
