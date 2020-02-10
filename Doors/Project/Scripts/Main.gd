@@ -2,6 +2,7 @@ extends Node2D
 
 var level_index = -1
 var levels = [
+	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Track_Test.tscn"),
 	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Intro.tscn"),

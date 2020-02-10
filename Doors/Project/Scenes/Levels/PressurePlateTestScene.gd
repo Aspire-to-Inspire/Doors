@@ -1,12 +1,25 @@
 extends "res://Scripts/Levels/Base.gd"
-var Code = [2,3,1,4]
+var Code = [1,2,3,4]
 var CourseCounter = 0
 onready var door = $Door
 
 func _ready():
+	shuffle_list(Code)
+	#print(Code)
 	$PressurePlate.connect("correct_code",self,"show_door")
 	
-	
+
+func shuffle_list(var Code,var start_index = 0,var last_index = 3):
+	if(last_index  == start_index):
+		return
+	randomize()
+	var random_count = randi()%4
+	var p = Code[last_index]
+	Code[last_index] = Code[random_count]
+	Code[random_count] = p
+	last_index-=1
+	shuffle_list(Code,0,last_index)
+		
 func get_course_counter():
 	return CourseCounter
 

@@ -9,11 +9,8 @@ var is_active = true
 	
 func make_somth():
 	if(Count == Owner.get_code()):
-		print(Owner.get_course_counter())
-		print(Count)
 		StatusColor.modulate = Color(1,0.1,0.1)
 		Owner.set_course_counter()
-		print(StatusColor.modulate)
 		if (Owner.get_course_counter() == 4):
 			get_tree().set_group("Plate","is_active",false)
 			get_tree().call_group("Plate","emit_signal","correct_code")

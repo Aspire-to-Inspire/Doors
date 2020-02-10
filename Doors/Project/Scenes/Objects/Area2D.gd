@@ -14,5 +14,4 @@ func make_somth():
 
 func _on_Area2D_body_entered(body):
 	if(body.name == "Player" and is_active == false):
-		print("OKOKOK")
 		make_somth()
