@@ -2,7 +2,8 @@ extends Node2D
 
 var level_index = -1
 var levels = [
-	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
+	preload("res://Scenes/Levels/City/NightLevel.tscn"),
+#	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Track_Test.tscn"),
 	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Intro.tscn"),
@@ -27,10 +28,11 @@ var music = {
 var current_track = ""
 
 onready var game_music = $music
+onready var UI = $Canvas/UI
 func _ready():
 	load_next_level()
 	set_player_to_spawn()
-	$UI/Score.text = str(level_index)
+	UI.get_node("Score").text = str(level_index)
 	play_music("first")
 
 func set_player_to_spawn():
@@ -48,7 +50,7 @@ func load_next_level():
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
 	level_index += 1
-	$UI/Score.text = str(level_index)
+	UI.get_node("Score").text = str(level_index)
 	var level
 	if level_index >= levels.size():
 		print("Reached final level! Randomizing...")
@@ -77,7 +79,7 @@ func play_music(track):
 
 func timeout():
 	print("TIME OUT")
-	$UI/Timer/Timer.stop()
+	$Canvas/UI/Timer/Timer.stop()
 	play_music("monster")
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
 	var instance = enemy.instance()

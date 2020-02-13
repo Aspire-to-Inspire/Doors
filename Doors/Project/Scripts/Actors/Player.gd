@@ -7,7 +7,7 @@ signal Killed
 export var speed : float = 150
 var dead : bool = false
 
-onready var joystick_move := get_tree().get_root().get_node("Main/UI/Joystick")
+onready var joystick_move := get_tree().get_root().get_node("Main/Canvas/UI/Joystick")
 
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -40,3 +40,8 @@ func hurt():
 
 func dying_finished():
 	emit_signal("Killed")
+	
+func set_default():
+	if $Light2D.is_visible():
+		$Light2D.hide()
+

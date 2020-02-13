@@ -17,7 +17,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." instance=ExtResource( 3 )]
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="Canvas" instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 122, 226 )
