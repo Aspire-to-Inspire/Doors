@@ -12,4 +12,4 @@ texture = null
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 texture = ExtResource( 3 )
-texture_scale = 0.05
+texture_scale = 0.15

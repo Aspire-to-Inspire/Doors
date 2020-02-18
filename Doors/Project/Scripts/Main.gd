@@ -2,19 +2,20 @@ extends Node2D
 
 var level_index = -1
 var levels = [
-	preload("res://Scenes/Levels/WindLevel.tscn"),
-	preload("res://Scenes/Levels/Track_Test.tscn"),
-	preload("res://Scenes/Levels/City/NightLevel.tscn"),
-#	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
-	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Intro.tscn"),
-	preload("res://Scenes/Levels/WindLevel.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
-#	preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	# preload("res://Scenes/Levels/City/Pick1.tscn"),
+	preload("res://Scenes/Levels/City/NightLevel.tscn"),
+	preload("res://Scenes/Levels/Track_Test.tscn"),
 	preload("res://Scenes/Levels/Village/Pick1.tscn"),
-	preload("res://Scenes/Levels/City/Pick1.tscn"),
+	# preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	# preload("res://Scenes/Levels/WindLevel.tscn"),
+	# preload("res://Scenes/Levels/Track_Test.tscn"),
+	# preload("res://Scenes/Levels/City/NightLevel.tscn"),
+	# preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 ]
 
 var music = {
@@ -47,7 +48,7 @@ func load_next_level():
 	if $Level:
 		$Level.queue_free()
 		get_node("/root/Main").remove_child($Level)
-	if $Follower:
+	if get_node("Follower"):
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
 	level_index += 1
@@ -81,6 +82,9 @@ func play_music(track):
 func timeout():
 	print("TIME OUT")
 	$Canvas/UI/Timer/Timer.stop()
+	spawn_monster()
+
+func spawn_monster():
 	play_music("monster")
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
 	var instance = enemy.instance()

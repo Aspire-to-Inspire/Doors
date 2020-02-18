@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Objects/WindArea.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 53.9191, 10 )
+extents = Vector2( 11, 67 )
 
 [node name="WindArea" type="Area2D"]
 script = ExtResource( 1 )
