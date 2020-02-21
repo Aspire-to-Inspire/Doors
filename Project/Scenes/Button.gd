@@ -8,7 +8,7 @@ var recording
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var idx = AudioServer.get_bus_index("Master")
-	effect = AudioServer.get_bus_effect(idx, 0)
+	effect = AudioServer.get_bus_effect(idx,0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -17,6 +17,8 @@ func _ready():
 
 func _on_Button_pressed():
 	print("sound")
+	var idx = AudioServer.get_bus_index("Master")
+	effect = AudioServer.get_bus_effect(idx,0)
 	if effect.is_recording_active():
 		recording = effect.get_recording() 
 		effect.set_recording_active(false) 
