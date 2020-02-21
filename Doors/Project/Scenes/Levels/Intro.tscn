@@ -1,17 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Levels/Intro.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Objects/WeaponThing.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Objects/TimePotion.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Shaders/fog.shader" type="Shader" id=7]
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 7 )
-shader_param/color = Vector3( 0.3, 0.6, 0.9 )
-shader_param/OCTAVES = 4
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
@@ -32,16 +23,4 @@ position = Vector2( 79, 143 )
 
 [node name="EnemySpawn" type="Position2D" parent="."]
 position = Vector2( 111, 143 )
-
-[node name="TimePotion" parent="." instance=ExtResource( 5 )]
-position = Vector2( 45.392, 78.9121 )
-
-[node name="WeaponThing" parent="." instance=ExtResource( 4 )]
-position = Vector2( 117.321, 79.6105 )
-
-[node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( 78.9121, 84.4988 )
-scale = Vector2( 3.90246, 5.01544 )
-texture = ExtResource( 6 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]

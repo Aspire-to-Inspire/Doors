@@ -28,3 +28,6 @@ func get_true_color():
 func show_door():
 	door.show()
 
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		_on_win(door)
