@@ -37,8 +37,8 @@ __meta__ = {
 }
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 127, 225 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="Label" type="Label" parent="."]
 margin_left = 4.0
@@ -51,6 +51,9 @@ text = "TOO MANY ROOMS"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Start" type="Button" parent="."]
 margin_left = 39.0

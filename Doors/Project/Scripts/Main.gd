@@ -1,12 +1,16 @@
 extends Node2D
 
-var level_index = -1
+var level_index = 0
 var levels = [
 	preload("res://Scenes/Levels/Intro.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
 	preload("res://Scenes/Levels/Mines/Level4.tscn"),
+	"random",
+	"random",
+	"random",
+	"random",
 	# preload("res://Scenes/Levels/City/Pick1.tscn"),
 	preload("res://Scenes/Levels/City/NightLevel.tscn"),
 	preload("res://Scenes/Levels/Track_Test.tscn"),
@@ -17,6 +21,9 @@ var levels = [
 	# preload("res://Scenes/Levels/City/NightLevel.tscn"),
 	# preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 ]
+
+var current_level_index = 0
+var completed = []
 
 var music = {
 	"monster": preload("res://Resources/music/ogg/monster.ogg"),
@@ -51,21 +58,28 @@ func load_next_level():
 	if get_node("Follower"):
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
-	level_index += 1
-	UI.get_node("Score").text = str(level_index)
+	UI.get_node("Score").text = str(level_index+1)
 	var level
-	if level_index >= levels.size():
+	if level_index >= levels.size() or str(levels[level_index]) == "random":
 		print("Reached final level! Randomizing...")
-		randomize()
-		level = levels[randi() % levels.size()]
+		var rng = current_level_index
+		while (rng == current_level_index):
+			randomize()
+			rng = randi() % completed.size()
+		current_level_index = rng
+		level = completed[current_level_index]
 	else:
 		level = levels[level_index]
+		if not (level in completed):
+			completed.append(level)
 	var instance = level.instance()
 	instance.connect("level_win", self, "_on_Level_level_win")
 	add_child(instance)
 	instance.set_name("Level")
 	move_child(instance, 0)
 	set_player_to_spawn()
+
+	level_index += 1
 	
 	if level_index < 15 and current_track != "first":
 		play_music("first")
