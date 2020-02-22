@@ -16,7 +16,7 @@ float noise(vec2 coord){
     
     vec2 cubic = f * f * (3.0 - 2.0 * f);
     
-    return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.y) + (d - b) * cubic.x * cubic.y;
+    return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
 }
 
 float fbm(vec2 coord){
