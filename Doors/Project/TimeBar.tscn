@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+
+[ext_resource path="res://TimeBar.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.745098, 0.819608, 0.678431, 1 )
+
+[node name="TimeBar" type="MarginContainer"]
+margin_left = 6.02936
+margin_top = 10.5514
+margin_right = 46.0294
+margin_bottom = 50.5514
+rect_scale = Vector2( 6.72, 3.12 )
+custom_constants/margin_right = 1
+custom_constants/margin_top = 9
+script = ExtResource( 1 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 9.0
+margin_right = 39.0
+
+margin_bottom = 23.0
+custom_styles/fg = SubResource( 1 )
+max_value = 150.0
+step = 1.0
+value = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

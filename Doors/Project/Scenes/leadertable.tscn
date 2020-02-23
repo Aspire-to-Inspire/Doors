@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="leadertable" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="."]
+margin_left = 94.35
+margin_top = 184.4
+margin_right = 162.35
+margin_bottom = 198.4
+text = "High score"
+
+[node name="score" type="Label" parent="."]
+margin_left = 104.1
+margin_top = 206.15
+margin_right = 144.1
+margin_bottom = 220.15
+__meta__ = {
+"_edit_use_anchors_": false
+}
