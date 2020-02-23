@@ -29,6 +29,10 @@ _global_script_class_icons={
 "Menu": "",
 "Player": ""
 }
+RPGDB_database={
+"equipment": null,
+"system": null
+}
 
 [application]
 

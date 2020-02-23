@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/menu.png" type="Texture" id=2]
@@ -6,8 +6,8 @@
 [ext_resource path="res://Resources/Sprites/button.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=5]
 [ext_resource path="res://Resources/music/ogg/menu.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Scenes/Button.gd" type="Script" id=7]
-[ext_resource path="res://Resources/Sprites/sound_on.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/settings_button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/settings.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -28,10 +28,6 @@ region_rect = Rect2( 0, 0, 230, 68 )
 [sub_resource type="DynamicFont" id=5]
 size = 42
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 230, 68 )
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -84,29 +80,16 @@ custom_fonts/font = SubResource( 5 )
 text = "Start "
 align = 1
 valign = 1
-
-[node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-autoplay = true
-
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.871
-anchor_top = 0.045
-anchor_right = 0.959
-anchor_bottom = 0.09
-margin_left = -7.58955
-margin_top = -1.0625
-margin_right = 4.23445
-margin_bottom = 7.7775
-custom_styles/normal = SubResource( 6 )
-script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Button"]
-position = Vector2( 17.4189, 13.8772 )
-scale = Vector2( 0.0404531, 0.0404531 )
-texture = ExtResource( 8 )
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="settings" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Button" parent="." instance=ExtResource( 7 )]
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
