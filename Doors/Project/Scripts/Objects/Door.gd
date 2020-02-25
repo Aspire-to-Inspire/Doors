@@ -14,7 +14,7 @@ func collided(player):
 	if health <= 0:
 		open()
 		if door_type == 1:
-			var progress = get_tree().get_root().get_node("Main/UI/Timer")
+			var progress = get_tree().get_root().get_node("Main/Canvas/UI/Timer")
 			var timer = progress.get_node("Timer")
 			timer.wait_time = timer.time_left + 3
 			if timer.wait_time > progress.max_value:

@@ -77,11 +77,11 @@ text = "Start "
 align = 1
 valign = 1
 
-[node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-autoplay = true
-
 [node name="Catspin" parent="." instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 126.934, 202.092 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
