@@ -44,4 +44,5 @@ func dying_finished():
 func set_default():
 	if $Light2D.is_visible():
 		$Light2D.hide()
-
+	if $Freezer.is_visible():
+		$Freezer.hide()
