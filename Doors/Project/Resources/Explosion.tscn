@@ -1,0 +1,137 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Explosion.tres" type="Gradient" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="Curve" id=1]
+min_value = -400.0
+max_value = 500.0
+_data = [ Vector2( 0, 336.364 ), 0.0, 19348.5, 0, 0, Vector2( 0.10045, 1 ), -1731.83, -1731.83, 0, 0, Vector2( 1, -110 ), 649.675, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+min_value = 1.0
+max_value = 2.5
+_data = [ Vector2( 0, 2.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.51477 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="Curve" id=4]
+max_value = 300.0
+_data = [ Vector2( 0, 292.5 ), 0.0, 17395.1, 0, 0, Vector2( 0.0884558, 0 ), -56846.6, 1.09704, 0, 1, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=5]
+max_value = 3.0
+_data = [ Vector2( 0, 2.50909 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.14205 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=7]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, 5154.09, 0, 0, Vector2( 0.0689655, -116.818 ), -7246.04, 11.7172, 0, 1, Vector2( 1, -105.909 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=8]
+min_value = 0.99
+max_value = 5.0
+_data = [ Vector2( 0, 0.99 ), 0.0, 0.0, 0, 0, Vector2( 1, 5 ), 5.11507, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0.0403727, 1 )
+colors = PoolColorArray( 0.254902, 0.254902, 0.254902, 0.784314, 0.196078, 0.192157, 0.192157, 0.290196 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 122.398, 184.393 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 3 )
+amount = 200
+lifetime = 0.5
+speed_scale = 2.0
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+linear_accel = 100.0
+linear_accel_random = 0.2
+linear_accel_curve = SubResource( 1 )
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles2D"]
+material = SubResource( 6 )
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.8
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 140 )
+initial_velocity = 100.0
+initial_velocity_random = 0.3
+linear_accel = 100.0
+linear_accel_random = 0.4
+linear_accel_curve = SubResource( 4 )
+scale_amount = 2.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 5 )
+color_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Particles2D"]
+show_behind_parent = true
+amount = 500
+lifetime = 0.8
+speed_scale = 3.0
+explosiveness = 0.8
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.15
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 0.5
+linear_accel_curve = SubResource( 7 )
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Particles2D"]
+self_modulate = Color( 1, 1, 1, 0.160784 )
+show_behind_parent = true
+z_index = 1
+amount = 500
+lifetime = 0.8
+speed_scale = 3.0
+explosiveness = 0.8
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.15
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 0.5
+linear_accel_curve = SubResource( 7 )
+scale_amount = 2.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
