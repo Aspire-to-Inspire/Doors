@@ -1,16 +1,74 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Fire.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Objects/PotionsTemplate.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Objects/Extinguisher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Extinguisher.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/Levels/Intro.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Objects/KeyDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=8]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends \"res://Scripts/Levels/Base.gd\"
+
+export var texture = preload(\"res://Resources/Sprites/menu.png\")
+
+func _ready():
+	get_tree().get_root().get_node(\"Main/bg\").texture = texture
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		var player = get_tree().get_root().get_node(\"Main/Player\")
+		player.get_node(\"Freezer\").hide()
+		_on_win(door)
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 26.5295, 21.9919 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "punch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Open:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bricked:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = ExtResource( 6 )
+script = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -47,11 +105,27 @@ position = Vector2( 80.3434, 48.9844 )
 [node name="StaticBody2D3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 106.337, 65.3224 )
 
-[node name="Extinguisher" parent="." instance=ExtResource( 4 )]
+[node name="Extinguisher" type="StaticBody2D" parent="."]
 position = Vector2( 12.6054, 144.614 )
 rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+script = ExtResource( 4 )
 health = 30
+
+[node name="Sprite" type="Sprite" parent="Extinguisher"]
+position = Vector2( 0, -2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
+
+[node name="Collision" type="CollisionShape2D" parent="Extinguisher"]
+position = Vector2( 15.9567, 17.0758 )
+shape = SubResource( 1 )
+
+[node name="Animation" type="AnimationPlayer" parent="Extinguisher"]
+anims/punch = SubResource( 2 )
 
 [node name="Key" parent="." instance=ExtResource( 3 )]
 visible = false

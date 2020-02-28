@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Objects/LightPath.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/PotionsTemplate.gd" type="Script" id=2]
+[ext_resource path="res://Resources/2DLight.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Objects/PotionsTemplate.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 18.8654, 78.1489, 0, 0, 0, 0, 18.8654, 78.1489, 0, 0, 0, 0, 74.8905, 83.8065, 0, 0, 0, 0, 130.353, 78.5049, 0, 0, 0, 0, 73.0553, 54.0361, 0, 0, 0, 0, 17.5927, 30.179, 0, 0, 0, 0, 73.0553, 24.2657, 0, 0, 0, 0, 130.353, 30.9946, 0, 0, 0, 0, 18.8654, 78.1489 )
+}
+
+[node name="LightPath" type="Path2D"]
+position = Vector2( 0.7547, 0.75471 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="Follow" type="PathFollow2D" parent="."]
+position = Vector2( 18.8654, 78.1489 )
+rotate = false
+
+[node name="Light" type="Light2D" parent="Follow"]
+texture = ExtResource( 3 )
+texture_scale = 0.1
+
+[node name="PotionsTemplate" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 2 )

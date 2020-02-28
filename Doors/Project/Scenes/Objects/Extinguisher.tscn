@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 26.5295, 21.9919 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "punch"
@@ -59,7 +59,7 @@ region_enabled = true
 region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 15.9567, 20.6617 )
+position = Vector2( 15.9567, 24.1053 )
 shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]

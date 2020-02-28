@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/village.tres" type="TileSet" id=2]
+[ext_resource path="res://Resources/2DLight.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Levels/City/Notifer.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Sprites/ghost.png" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends \"res://Scripts/Levels/Village/Pick1.gd\"
+
+onready var progress = get_tree().get_root().get_node(\"Main/Canvas/UI/Timer\")
+onready var timer = progress.get_node(\"Timer\")
+
+func _ready():
+	timer.set_paused(true)
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		timer.wait_time = 10
+		timer.set_paused(false)
+		_on_win(door)
+"
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2.70751, 75.4464, 0, 0, 0, 0, 2.29969, 75.6503, 0, 0, 0, 0, 43.1436, 51.7747, 0, 0, 0, 0, 108.546, 51.0612, 0, 0, 0, 0, 151.831, 75.7952, 0, 0, 0, 0, 123.529, 100.054, 0, 0, 0, 0, 44.5706, 99.3401, 0, 0, 0, 0, 2.70751, 75.4464 )
+}
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Path2D
+
+onready var follow = get_node(\"Follow\")
+
+func _process(delta):
+	follow.set_offset(follow.get_offset() + 120 * delta)
+	
+"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.0
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Path2D
+
+onready var follow = get_node(\"Follow\")
+
+func _process(delta):
+	follow.set_offset(follow.get_offset() + 120 * delta)
+	
+"
+
+[node name="Level" type="Node2D"]
+position = Vector2( 48, 76 )
+script = SubResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65535, 3, 0, 0, 10, 0, 1, 10, 0, 2, 10, 0, 3, 10, 0, 4, 10, 0, 5, -1610612733, 0, 131071, -1073741814, 0, 65536, 15, 0, 65537, 15, 0, 65538, 15, 0, 65539, 15, 0, 65540, 15, 0, 65541, -1610612726, 0, 196607, -1073741814, 0, 131072, 15, 0, 131073, 15, 0, 131074, 15, 0, 131075, 15, 0, 131076, 15, 0, 131077, -1610612726, 0, 262143, -1073741814, 0, 196608, 15, 0, 196609, 15, 0, 196610, 15, 0, 196611, 15, 0, 196612, 15, 0, 196613, -1610612726, 0, 327679, -1073741814, 0, 262144, 15, 0, 262145, 15, 0, 262146, 15, 0, 262147, 15, 0, 262148, 15, 0, 262149, -1610612726, 0, 393215, -1073741821, 0, 327680, 1610612746, 0, 327681, 1610612746, 0, 327682, 1610612746, 0, 327683, 1610612746, 0, 327684, 1610612746, 0, 327685, 1610612739, 0 )
+
+[node name="Door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 0 )
+
+[node name="Door2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32.0384, 145.079 )
+rotation = -1.5708
+
+[node name="Door3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 191.357, 43.5919 )
+rotation = 1.5708
+
+[node name="PlayerSpawn" type="Position2D" parent="."]
+position = Vector2( 79, 143 )
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 143, 144 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.207843, 0.188235, 0.188235, 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 3.0057, -14.2841 )
+curve = SubResource( 1 )
+script = SubResource( 4 )
+
+[node name="Follow" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 150.12, 74.598 )
+rotation = 1.93504
+offset = 159.536
+
+[node name="Light" type="Light2D" parent="Path2D/Follow"]
+texture = ExtResource( 5 )
+texture_scale = 0.1
+
+[node name="Notifer" type="Area2D" parent="Path2D/Follow"]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/Follow/Notifer"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Path2D/Follow/Notifer"]
+position = Vector2( 0.00640118, 0.301633 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2( -5.08042, 53.4966 )
+curve = SubResource( 1 )
+script = SubResource( 3 )
+
+[node name="Follow" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 2.70751, 75.4464 )
+rotation = -0.535425
+
+[node name="Light" type="Light2D" parent="Path2D2/Follow"]
+texture = ExtResource( 5 )
+texture_scale = 0.1
+
+[node name="Notifer" type="Area2D" parent="Path2D2/Follow"]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/Follow/Notifer"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Path2D2/Follow/Notifer"]
+position = Vector2( 0.00640118, 0.301633 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+[connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
+[connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
+[connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]
+[connection signal="body_entered" from="Path2D/Follow/Notifer" to="Path2D/Follow/Notifer" method="_on_PotionsTemplate_body_entered"]
+[connection signal="body_entered" from="Path2D2/Follow/Notifer" to="Path2D2/Follow/Notifer" method="_on_PotionsTemplate_body_entered"]

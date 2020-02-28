@@ -65,6 +65,9 @@ rect_scale = Vector2( 0.733333, 1.215 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Start"]
 margin_left = 9.72728
