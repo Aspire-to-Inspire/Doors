@@ -145,7 +145,7 @@ void fragment(){
 shader = SubResource( 2 )
 shader_param/transparent = Color( 0, 0, 0, 0 )
 shader_param/inner = Color( 0.576471, 0.52549, 0.411765, 0.0588235 )
-shader_param/outer = Color( 1, 0.913725, 0.00784314, 1 )
+shader_param/outer = Color( 0.592157, 0.568627, 0.219608, 1 )
 shader_param/inner_threshold = 0.3
 shader_param/outer_threshold = 0.05
 shader_param/soft_edge = 0.04
