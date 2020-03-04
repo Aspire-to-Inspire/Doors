@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=20 format=2]
-=======
-[gd_scene load_steps=18 format=2]
->>>>>>> cd49ba12c7c537e39dd50be5f889b3dda899eed1
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=2]
@@ -14,11 +10,8 @@
 [ext_resource path="res://The_End.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=10]
-<<<<<<< HEAD
 [ext_resource path="res://Scenes/settings_button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/settings.tscn" type="PackedScene" id=12]
-=======
->>>>>>> cd49ba12c7c537e39dd50be5f889b3dda899eed1
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 6 )
@@ -97,6 +90,9 @@ margin_bottom = 34.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="The_End" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -117,12 +113,8 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 __meta__ = {
-<<<<<<< HEAD
 "_edit_group_": true,
 "_edit_use_anchors_": false
-=======
-"_edit_group_": true
->>>>>>> cd49ba12c7c537e39dd50be5f889b3dda899eed1
 }
 
 [node name="Label" type="Label" parent="Resume"]
@@ -143,7 +135,6 @@ margin_bottom = 78.0
 custom_fonts/font = ExtResource( 10 )
 text = "0"
 align = 1
-<<<<<<< HEAD
 
 [node name="settings" parent="." instance=ExtResource( 12 )]
 visible = false
@@ -155,8 +146,6 @@ margin_top = 7.3089
 margin_right = 278.78
 margin_bottom = 47.3089
 rect_scale = Vector2( 0.492812, 0.630798 )
-=======
->>>>>>> cd49ba12c7c537e39dd50be5f889b3dda899eed1
 [connection signal="timeout" from="Timer/Timer" to="Timer" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
