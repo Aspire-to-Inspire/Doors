@@ -4,7 +4,7 @@ func make_somth():
 	pass
 
 func _on_PotionsTemplate_body_entered(body):
-		if (body.name == "Player"):
+		if (body.name == "Player" and is_visible()):
 		 if (self.has_method("make_somth")):
 				self.make_somth()
 				queue_free()

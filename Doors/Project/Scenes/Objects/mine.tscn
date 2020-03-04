@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Objects/PotionsTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/mine.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Explosion.tscn" type="PackedScene" id=3]
+
+[node name="PotionsTemplate" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Particles2D" parent="." index="2" instance=ExtResource( 3 )]

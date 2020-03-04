@@ -3,7 +3,7 @@ uniform vec3 color = vec3(.3, .6, .9);
 uniform int OCTAVES = 4;
 
 float rand(vec2 coord){
-    return fract(sin(dot(coord,vec2(58, 78)) *1000.0) * 1000.0);
+    return fract(sin(dot(coord,vec2(58, 78)) * 100.0) * 10.0);
 }
     
 float noise(vec2 coord){
@@ -31,9 +31,9 @@ float fbm(vec2 coord){
 }
 
 void fragment(){
-    vec2 coord = UV * 20.0;
+    vec2 coord = UV * 10.0;
     
-    vec2 motion = vec2( fbm(coord + vec2(TIME * -0.5,TIME * 0.5)) );
+    vec2 motion = vec2( fbm(coord + vec2(TIME * 3.0 ,TIME * 5.0)) );
     float final = fbm(coord + motion);
-    COLOR = vec4(color, final * 0.5);
+    COLOR = vec4(color, final);
 }

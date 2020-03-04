@@ -2,6 +2,10 @@ extends Node2D
 
 var level_index = 0
 var levels = [
+	preload("res://Scenes/Levels/Mines/Mines.tscn"),
+	preload("res://Scenes/Levels/Firefighter.tscn"),
+	preload("res://Scenes/Levels/City/NightLevel3.tscn"),
+	preload("res://Scenes/Levels/City/NightLevel2.tscn"),
 	preload("res://Scenes/Levels/Intro.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level2.tscn"),
