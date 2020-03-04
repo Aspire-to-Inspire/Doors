@@ -11,5 +11,4 @@ func _ready():
 
 func _on_Door_state_changed(door, toggle):
 	if door.door_type == 1:
-		get_tree().get_root().get_node("Main/Player").set_default()
 		_on_win(door)

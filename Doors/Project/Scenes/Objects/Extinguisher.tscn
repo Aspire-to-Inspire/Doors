@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Objects/Door.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/Extinguisher.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 26.5295, 21.9919 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "punch"
@@ -47,6 +47,7 @@ tracks/2/keys = {
 }
 
 [node name="Door" type="StaticBody2D"]
+position = Vector2( 0, -1 )
 collision_layer = 3
 script = ExtResource( 1 )
 
@@ -55,26 +56,10 @@ position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 96, 160, 32, 32 )
-
-[node name="Open" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -2 )
-texture = ExtResource( 2 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 96, 224, 32, 32 )
-
-[node name="Bricked" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -2 )
-texture = ExtResource( 2 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 96, 192, 32, 32 )
+region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 16 )
+position = Vector2( 15.9567, 24.1053 )
 shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]

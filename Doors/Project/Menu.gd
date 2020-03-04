@@ -4,8 +4,9 @@ class_name Menu
 onready var menu_music = $music
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
 	#get_tree().get_root().get_node("")
-	menu_music.play()
+#	menu_music.play()
 
 
 

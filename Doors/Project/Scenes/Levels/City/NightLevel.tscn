@@ -1,15 +1,47 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/village.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Objects/WeaponThing.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Resources/Sprites/bg_city.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Levels/Village/Pick1.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Shaders/Flame.shader" type="Shader" id=3]
+[ext_resource path="res://Resources/2DLight.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Objects/WeaponThing.gd" type="Script" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Scripts/Levels/Base.gd\"
+
+export var texture = preload(\"res://Resources/Sprites/bg_village.png\")
+
+func _ready():
+	get_tree().get_root().get_node(\"Main/bg\").texture = texture 
+	randomize()
+	var idx = (randi() % 3) + 1
+	print(idx)
+	get_node(\"Door\" + str(idx)).door_type = 1
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		var player = get_tree().get_root().get_node(\"Main/Player\")
+		player.get_node(\"Light2D\").hide()
+		_on_win(door)
+"
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/transparent = Color( 0, 0, 0, 0 )
+shader_param/inner = Color( 0.843137, 0.952941, 0.00392157, 1 )
+shader_param/outer = Color( 0.898039, 0.0745098, 0.0745098, 1 )
+shader_param/inner_threshold = 0.4
+shader_param/outer_threshold = 0.15
+shader_param/soft_edge = 0.04
+shader_param/center = Vector2( 0.5, 0.8 )
+shader_param/OCTAVES = 6
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = ExtResource( 5 )
-texture = ExtResource( 4 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -35,8 +67,23 @@ position = Vector2( 143, 144 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.054902, 0.0470588, 0.0470588, 1 )
 
-[node name="WeaponThing" parent="." instance=ExtResource( 3 )]
+[node name="WeaponThing" type="Area2D" parent="."]
 position = Vector2( 79.2729, 99.6142 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponThing"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="WeaponThing"]
+material = SubResource( 3 )
+position = Vector2( 0.075943, -1.11429 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="WeaponThing"]
+texture = ExtResource( 6 )
+texture_scale = 0.05
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]
+[connection signal="body_entered" from="WeaponThing" to="WeaponThing" method="_on_PotionsTemplate_body_entered"]

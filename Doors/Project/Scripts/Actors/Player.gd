@@ -41,7 +41,3 @@ func hurt():
 func dying_finished():
 	emit_signal("Killed")
 	
-func set_default():
-	if $Light2D.is_visible():
-		$Light2D.hide()
-
