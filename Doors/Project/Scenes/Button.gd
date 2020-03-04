@@ -20,7 +20,7 @@ func visibility(node):
 
 func _on_Button_pressed():
 	print("settings")
-	get_tree().paused = !get_tree().paused
+	#get_tree().paused = !get_tree().paused
 	visibility(get_parent().get_node("settings"))
 	
 	
