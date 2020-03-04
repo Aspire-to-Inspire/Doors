@@ -8,6 +8,5 @@ func _ready():
 
 func _on_Door_state_changed(door, toggle):
 	if door.door_type == 1:
-		
 		timer.set_paused(false)
 		_on_win(door)

@@ -30,7 +30,14 @@ func set_course_counter():
 	CourseCounter+=1
 
 func incorrect_code():
-	CourseCounter = 0
+	pass
+#	CourseCounter = 0
+#	get_tree().set_group("Plate","modulate",Color(1,1,1))
 
 func show_door():
 	door.show()
+
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		_on_win(door)
