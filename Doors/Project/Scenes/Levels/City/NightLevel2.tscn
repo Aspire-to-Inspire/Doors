@@ -44,7 +44,7 @@ position = Vector2( 3.24352, 11.639 )
 curve = SubResource( 1 )
 
 [node name="WeaponThing" parent="." instance=ExtResource( 4 )]
-position = Vector2( 8.30179, 147.923 )
+position = Vector2( 77.9611, 70.3027 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]

@@ -24,7 +24,7 @@ func _on_Door_state_changed(door, toggle):
 		_on_win(door)
 "
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 153.073, 140.679, 0, 0, 0, 0, 4.01811, 113.51, 0, 0, 0, 0, 147.035, 88.2271, 0, 0, 0, 0, 5.15017, 71.2462, 0, 0, 0, 0, 149.677, 46.7182, 0, 0, 0, 0, 7.03694, 30.4919, 0, 0, 0, 0, 150.054, 27.8505, 0, 0, 0, 0, 3.26339, 137.661, 0, 0, 0, 0, 153.073, 140.679 )
 }
@@ -62,11 +62,11 @@ color = Color( 0.207843, 0.188235, 0.188235, 1 )
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 3.24352, 11.639 )
-curve = SubResource( 4 )
+curve = SubResource( 2 )
 script = ExtResource( 5 )
 
 [node name="Follow" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 130.456, 91.1581 )
+position = Vector2( 130.455, 91.1581 )
 offset = 276.85
 rotate = false
 
@@ -85,7 +85,7 @@ position = Vector2( 0.00640118, 0.301633 )
 scale = Vector2( 0.233936, 0.22431 )
 
 [node name="WeaponThing" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8.30179, 147.923 )
+position = Vector2( 59.0956, 84.1606 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]

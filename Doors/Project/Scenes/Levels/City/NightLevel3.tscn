@@ -133,7 +133,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
 
 [node name="WeaponThing" parent="." instance=ExtResource( 3 )]
-position = Vector2( 77.3321, 185.127 )
+position = Vector2( 78.9532, 180.804 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]

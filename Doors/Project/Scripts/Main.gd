@@ -20,6 +20,7 @@ var levels = [
 	"random",
 	preload("res://Scenes/Levels/City/NightLevel.tscn"),
 	preload("res://Scenes/Levels/City/NightLevel2.tscn"),
+	preload("res://Scenes/Levels/City/Night_Plates.tscn"),
 	preload("res://Scenes/Levels/City/NightLevel3.tscn"),
 	"random",
 	"random",
