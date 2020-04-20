@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Objects/LightPath.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/village.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Levels/City/NightLevel2.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Objects/WeaponThing.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 18.8654, 78.1489, 0, 0, 0, 0, 18.8654, 78.1489, 0, 0, 0, 0, 74.8905, 83.8065, 0, 0, 0, 0, 130.353, 78.5049, 0, 0, 0, 0, 73.0553, 54.0361, 0, 0, 0, 0, 17.5927, 30.179, 0, 0, 0, 0, 73.0553, 24.2657, 0, 0, 0, 0, 130.353, 30.9946, 0, 0, 0, 0, 18.8654, 78.1489 )
+}
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
@@ -35,6 +41,10 @@ color = Color( 0.207843, 0.188235, 0.188235, 1 )
 
 [node name="Path2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3.24352, 11.639 )
+curve = SubResource( 1 )
+
+[node name="WeaponThing" parent="." instance=ExtResource( 4 )]
+position = Vector2( 8.30179, 147.923 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]
