@@ -8,6 +8,7 @@ func _ready():
 
 func _on_Door_state_changed(door, toggle):
 	if door.door_type == 1:
-		
 		timer.set_paused(false)
+		var player = get_tree().get_root().get_node("Main/Player")
+		player.get_node("Light2D").hide()
 		_on_win(door)

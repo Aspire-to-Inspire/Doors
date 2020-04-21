@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Levels/City/Notifer.gd" type="Script" id=6]
 [ext_resource path="res://Resources/Sprites/ghost.png" type="Texture" id=7]
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Levels/Village/Pick1.gd\"
 
 onready var progress = get_tree().get_root().get_node(\"Main/Canvas/UI/Timer\")
@@ -36,7 +36,7 @@ script/source = "extends Path2D
 onready var follow = get_node(\"Follow\")
 
 func _process(delta):
-	follow.set_offset(follow.get_offset() + 120 * delta)
+	follow.set_offset(follow.get_offset() + 80 * delta)
 	
 "
 
@@ -49,13 +49,13 @@ script/source = "extends Path2D
 onready var follow = get_node(\"Follow\")
 
 func _process(delta):
-	follow.set_offset(follow.get_offset() + 120 * delta)
+	follow.set_offset(follow.get_offset() + 80 * delta)
 	
 "
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = SubResource( 6 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -133,7 +133,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
 
 [node name="WeaponThing" parent="." instance=ExtResource( 3 )]
-position = Vector2( 77.3321, 185.127 )
+position = Vector2( 78.9532, 180.804 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]

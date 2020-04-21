@@ -9,13 +9,12 @@ var is_active = true
 	
 func make_somth():
 	if(Count == Owner.get_code()):
-		StatusColor.modulate = Color(1,0.1,0.1)
+		StatusColor.modulate = Color(1,0,0)
 		Owner.set_course_counter()
 		if (Owner.get_course_counter() == 4):
 			get_tree().set_group("Plate","is_active",false)
 			get_tree().call_group("Plate","emit_signal","correct_code")
 	else:
-		get_tree().set_group("Plate","modulate",Color(1,10,10))
 		Owner.incorrect_code()
 
 func _on_PressurePlate_body_entered(body):

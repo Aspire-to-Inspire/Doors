@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Objects/KeyDoor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=8]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Levels/Base.gd\"
 
 export var texture = preload(\"res://Resources/Sprites/menu.png\")
@@ -23,11 +23,10 @@ func _on_Door_state_changed(door, toggle):
 		_on_win(door)
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 26.5295, 21.9919 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "punch"
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -68,7 +67,7 @@ tracks/2/keys = {
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -122,10 +121,10 @@ region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="Extinguisher"]
 position = Vector2( 15.9567, 17.0758 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="Extinguisher"]
-anims/punch = SubResource( 2 )
+anims/punch = SubResource( 3 )
 
 [node name="Key" parent="." instance=ExtResource( 3 )]
 visible = false

@@ -49,6 +49,9 @@ margin_bottom = -1.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="TextureProgress" parent="."]
 margin_left = 9.0

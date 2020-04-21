@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Objects/WeaponThing.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Trigger.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Scripts/Levels/Base.gd\"
+export var texture = preload(\"res://Resources/Sprites/bg_cave.png\")
+
+func _ready():
+	get_tree().get_root().get_node(\"Main/bg\").texture = texture 
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		var player = get_tree().get_root().get_node(\"Main/Player\")
+		player.get_node(\"Light2D\").hide()
+		_on_win(door)
+
+func _on_Trigger_entered(body):
+	$Door.set_visible(not $Door.visible)
+"
+
+[node name="Level" type="Node2D"]
+position = Vector2( 48, 76 )
+script = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65535, 1, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, -1610612735, 0, 131071, -1073741819, 0, 65536, 6, 0, 65537, 1610612742, 0, 65538, 1610612742, 0, 65539, 1610612742, 0, 65540, 6, 0, 65541, -1610612731, 0, 196607, -1073741819, 0, 131072, 6, 0, 131073, 1610612742, 0, 131074, 8, 0, 131075, 1610612742, 0, 131076, 6, 0, 131077, -1610612731, 0, 262143, -1073741819, 0, 196608, 6, 0, 196609, 1610612742, 0, 196610, 1610612742, 0, 196611, 1610612742, 0, 196612, 6, 0, 196613, -1610612731, 0, 327679, -1073741819, 0, 262144, 6, 0, 262145, 1610612742, 0, 262146, 1610612742, 0, 262147, 1610612742, 0, 262148, 6, 0, 262149, -1610612731, 0, 393215, -1073741823, 0, 327680, 1610612741, 0, 327681, 1610612741, 0, 327682, 1610612741, 0, 327683, 1610612741, 0, 327684, 1610612741, 0, 327685, 1610612737, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 1 )]
+position = Vector2( 63, 0 )
+door_type = 1
+
+[node name="Trigger" parent="." instance=ExtResource( 5 )]
+position = Vector2( 80, 80 )
+
+[node name="PlayerSpawn" type="Position2D" parent="."]
+position = Vector2( 79, 143 )
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 111, 143 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.207843, 0.188235, 0.188235, 1 )
+
+[node name="WeaponThing" parent="." instance=ExtResource( 4 )]
+position = Vector2( 80.1452, 77.0403 )
+[connection signal="state_changed" from="Door" to="." method="_on_Door_state_changed"]
+[connection signal="trigger_entered" from="Trigger" to="." method="_on_Trigger_entered"]

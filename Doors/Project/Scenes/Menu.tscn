@@ -43,12 +43,14 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 8.0
-margin_right = 245.0
-margin_bottom = 111.0
+margin_top = 64.0
+margin_right = 241.0
+margin_bottom = 167.0
 rect_min_size = Vector2( 136, 79 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.94902, 0.509804, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TOO MANY ROOMS"
 align = 1
 valign = 1
@@ -93,4 +95,8 @@ bus = "Music"
 visible = false
 
 [node name="Button" parent="." instance=ExtResource( 7 )]
+margin_left = 202.523
+margin_top = 11.0013
+margin_right = 263.523
+margin_bottom = 51.0013
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
