@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Player
+class_name Cat
 
 signal Killed
 
@@ -33,16 +33,12 @@ func _move(delta: float) -> void:
 		$Ray.set_enabled(false)
 		$AnimatedSprite.stop()
 		#$AnimationPlayer.stop()
-var timer:Timer
+
 func hurt():
 	if not dead:
 		#$AnimationPlayer.play("dead")
 		$AnimatedSprite.play("dead")
 		set_physics_process(false)
-		#timer.connect("timeout", self, "queue_free")
-		#timer.set_wait_time(2)
-		#timer.start()
-		#dying_finished()
 		dead = true
 
 func dying_finished():
@@ -61,4 +57,4 @@ func direction2str(direction):
 
 
 func _on_AnimatedSprite_animation_finished():
-	emit_signal("Killed")
+	pass # Replace with function body.
