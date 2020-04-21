@@ -26,3 +26,4 @@ stream = ExtResource( 5 )
 bus = "Music"
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 122, 226 )
