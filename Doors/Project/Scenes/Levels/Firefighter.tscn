@@ -56,7 +56,6 @@ door_type = 1
 [node name="Door3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 158.757, 53.0294 )
 rotation = 1.5708
-door_type = 1
 
 [node name="Door4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1.84254, 87.3681 )

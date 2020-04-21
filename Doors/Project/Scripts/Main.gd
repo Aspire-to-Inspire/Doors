@@ -26,8 +26,10 @@ var levels = [
 	"random",
 	"random",
 	"random",
-	preload("res://Scenes/Levels/Firefighter.tscn"),
+	preload("res://Scenes/Levels/Village/Village_Fire_2.tscn"),
 	preload("res://Scenes/Levels/Village/Village_Fire_1.tscn"),
+	preload("res://Scenes/Levels/Mines/Fire_Mines_Level.tscn"),
+	preload("res://Scenes/Levels/Village/Village_Fire_3.tscn"),
 ]
 
 var current_level_index = 0

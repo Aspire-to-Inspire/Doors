@@ -6,7 +6,7 @@
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/Fire.tscn" type="PackedScene" id=6]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Levels/Base.gd\"
 
 export var texture = preload(\"res://Resources/Sprites/bg_cave.png\")
@@ -25,11 +25,10 @@ func _on_Door_state_changed(door, toggle):
 		_on_win(door)
 "
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.6335, 15.2407 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.0242, 15.2407 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "punch"
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -46,7 +45,7 @@ tracks/0/keys = {
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -59,9 +58,11 @@ position = Vector2( 32, 0 )
 
 [node name="Door2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, 0 )
+health = 30
 
 [node name="Door3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 96, 0 )
+health = 30
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( 79, 143 )
@@ -74,7 +75,7 @@ position = Vector2( -26.8477, 170.209 )
 rotation = -1.56487
 collision_layer = 3
 script = ExtResource( 4 )
-health = 25
+health = 20
 
 [node name="Sprite" type="Sprite" parent="Door"]
 position = Vector2( 0, -2 )
@@ -85,20 +86,20 @@ region_enabled = true
 region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="Door"]
-position = Vector2( 15.9567, 24.1053 )
-shape = SubResource( 1 )
+position = Vector2( 11.0319, 10.0502 )
+shape = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="Door"]
-anims/punch = SubResource( 2 )
+anims/punch = SubResource( 3 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 32.1292, 57.2164 )
+position = Vector2( 33.0094, 52.375 )
 
 [node name="StaticBody2D2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 75.7017, 49.7342 )
+position = Vector2( 80.1029, 52.8151 )
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 119.274, 55.896 )
+position = Vector2( 128.957, 52.375 )
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]

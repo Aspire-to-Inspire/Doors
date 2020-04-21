@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Levels/City/Pick1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Levels/Village/Pick1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/WindArea.tscn" type="PackedScene" id=2]
 
 [node name="Level" instance=ExtResource( 1 )]
@@ -9,5 +9,5 @@
 position = Vector2( 24.6404, 88.8082 )
 
 [node name="WindArea2" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( 95.995, 93.4283 )
+position = Vector2( 115.353, 77.2965 )
 rotation = 1.5708
