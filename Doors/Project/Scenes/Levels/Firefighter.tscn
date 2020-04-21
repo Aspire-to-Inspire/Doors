@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Resources/Tilesets/main.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Fire.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Objects/PotionsTemplate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Objects/Extinguisher.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Objects/KeyDoor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
@@ -40,30 +38,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Open:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Bricked:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
-}
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
@@ -82,7 +56,6 @@ door_type = 1
 [node name="Door3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 158.757, 53.0294 )
 rotation = 1.5708
-door_type = 1
 
 [node name="Door4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1.84254, 87.3681 )
@@ -111,6 +84,7 @@ scale = Vector2( 0.5, 0.5 )
 collision_layer = 3
 script = ExtResource( 4 )
 health = 30
+door_type = 1
 
 [node name="Sprite" type="Sprite" parent="Extinguisher"]
 position = Vector2( 0, -2 )
@@ -125,18 +99,6 @@ shape = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="Extinguisher"]
 anims/punch = SubResource( 3 )
-
-[node name="Key" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 119.533, 119.099 )
-
-[node name="Door2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 99.5382, 190.384 )
-rotation = 3.14159
-
-[node name="KeyDoor" parent="." instance=ExtResource( 7 )]
-position = Vector2( 159.088, 119.534 )
-rotation = 1.5708
 [connection signal="state_changed" from="Door1" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door3" to="." method="_on_Door_state_changed"]
 [connection signal="state_changed" from="Door4" to="." method="_on_Door_state_changed"]

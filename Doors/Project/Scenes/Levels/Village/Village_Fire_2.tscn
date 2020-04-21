@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/village.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Objects/Extinguisher.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Objects/Fire.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends \"res://Scripts/Levels/Base.gd\"
+
+export var texture = preload(\"res://Resources/Sprites/bg_cave.png\")
+
+func _ready():
+	get_tree().get_root().get_node(\"Main/bg\").texture = texture 
+
+func _on_Door_state_changed(door, toggle):
+	if door.door_type == 1:
+		var player = get_tree().get_root().get_node(\"Main/Player\")
+		player.get_node(\"Freezer\").hide()
+		_on_win(door)
+"
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10.0242, 15.2407 )
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Level" type="Node2D"]
+position = Vector2( 48, 76 )
+script = SubResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 6, 0, 1, 13, 0, 2, 13, 0, 3, 13, 0, 4, -1610612730, 0, 65536, -1073741811, 0, 65537, 14, 0, 65538, 14, 0, 65539, 14, 0, 65540, -1610612723, 0, 131072, -1073741811, 0, 131073, 14, 0, 131074, 14, 0, 131075, 14, 0, 131076, -1610612723, 0, 196608, -1073741811, 0, 196609, 14, 0, 196610, 14, 0, 196611, 14, 0, 196612, -1610612723, 0, 262144, -1073741811, 0, 262145, 14, 0, 262146, 14, 0, 262147, 14, 0, 262148, -1610612723, 0, 327680, -1073741811, 0, 327681, 14, 0, 327682, 14, 0, 327683, 14, 0, 327684, -1610612723, 0, 393216, -1073741818, 0, 393217, 1610612749, 0, 393218, 1610612749, 0, 393219, 1610612749, 0, 393220, 1610612742, 0 )
+
+[node name="Door2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 0 )
+health = 30
+door_type = 1
+
+[node name="PlayerSpawn" type="Position2D" parent="."]
+position = Vector2( 79, 143 )
+
+[node name="EnemySpawn" type="Position2D" parent="."]
+position = Vector2( 111, 143 )
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2( 149.85, 154.539 )
+rotation = -4.70543
+collision_layer = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+health = 20
+
+[node name="Sprite" type="Sprite" parent="Door"]
+position = Vector2( 0, -2 )
+scale = Vector2( 0.837319, 0.780897 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
+
+[node name="Collision" type="CollisionShape2D" parent="Door"]
+position = Vector2( 12.6379, 7.87755 )
+shape = SubResource( 5 )
+
+[node name="Animation" type="AnimationPlayer" parent="Door"]
+anims/punch = SubResource( 3 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 74.0766, 114.516 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 76.2202, 39.7462 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 97.0758, 79.3929 )
+[connection signal="state_changed" from="Door2" to="." method="_on_Door_state_changed"]
