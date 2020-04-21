@@ -61,4 +61,5 @@ func direction2str(direction):
 
 
 func _on_AnimatedSprite_animation_finished():
-	emit_signal("Killed")
+	if $AnimatedSprite.animation == "dead":
+		dying_finished()
