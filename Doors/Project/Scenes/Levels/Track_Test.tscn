@@ -24,16 +24,17 @@ position = Vector2( 111, 143 )
 [node name="Door" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 64, 0 )
+health = 10
 door_type = 1
 
 [node name="Track" parent="." instance=ExtResource( 5 )]
 modulate = Color( 0, 1, 0, 1 )
-position = Vector2( 47, 96 )
+position = Vector2( 45, 96 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Track2" parent="." instance=ExtResource( 5 )]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 111.361, 96.2374 )
+position = Vector2( 115, 96.237 )
 scale = Vector2( 0.3, 0.3 )
 color = "red"
 

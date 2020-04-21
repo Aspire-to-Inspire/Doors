@@ -26,6 +26,8 @@ var levels = [
 	"random",
 	"random",
 	"random",
+	preload("res://Scenes/Levels/Firefighter.tscn"),
+	preload("res://Scenes/Levels/Village/Village_Fire_1.tscn"),
 ]
 
 var current_level_index = 0
@@ -58,10 +60,10 @@ func _on_Level_level_win():
 	call_deferred("load_next_level")
 
 func load_next_level():
-	if $Level:
+	if has_node("Level"):
 		$Level.queue_free()
 		get_node("/root/Main").remove_child($Level)
-	if get_node("Follower"):
+	if has_node("Follower"): #get_node("Follower"):
 		$Follower.queue_free()
 		get_node("/root/Main").remove_child($Follower)
 	UI.get_node("Score").text = str(level_index+1)
