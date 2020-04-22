@@ -96,6 +96,7 @@ offset = 159.536
 [node name="Light" type="Light2D" parent="Path2D/Follow"]
 texture = ExtResource( 5 )
 texture_scale = 0.1
+color = Color( 0.972549, 0.843137, 0.576471, 1 )
 
 [node name="Notifer" type="Area2D" parent="Path2D/Follow"]
 script = ExtResource( 6 )
@@ -120,6 +121,7 @@ rotation = -0.535425
 [node name="Light" type="Light2D" parent="Path2D2/Follow"]
 texture = ExtResource( 5 )
 texture_scale = 0.1
+color = Color( 0.972549, 0.843137, 0.576471, 1 )
 
 [node name="Notifer" type="Area2D" parent="Path2D2/Follow"]
 script = ExtResource( 6 )

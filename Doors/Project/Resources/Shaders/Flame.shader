@@ -71,8 +71,8 @@ void fragment(){
 	float egg_s = egg_shape(UV,0.4);
 	egg_s += egg_shape(UV, 0.2) / 2.0; 
 	
-	float noise1 = noise(coord + vec2(TIME * 0.25, TIME * 4.0));
-	float noise2 = noise(coord + vec2(TIME * 0.5, TIME * 6.0));
+	float noise1 = noise(coord + vec2(TIME * 0.25, TIME * 1.0));
+	float noise2 = noise(coord + vec2(TIME * 0., TIME * 1.0));
 	float combine_noise = (noise1 + noise2) / 2.0;
 	
 	float fbm_noise = fbm(fbmcoord + vec2(0.0, TIME * 3.0));

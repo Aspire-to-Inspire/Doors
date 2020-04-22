@@ -14,6 +14,7 @@ var levels = [
 	preload("res://Scenes/Levels/PressurePlateTestScene.tscn"),
 	preload("res://Scenes/Levels/Track2.tscn"),
 	preload("res://Scenes/Levels/Track_Test.tscn"),
+	preload("res://Scenes/Levels/Village/Pick1.tscn"),
 	"random",
 	"random",
 	"random",
@@ -29,11 +30,16 @@ var levels = [
 	preload("res://Scenes/Levels/Village/Village_Fire_2.tscn"),
 	preload("res://Scenes/Levels/Village/Village_Fire_1.tscn"),
 	preload("res://Scenes/Levels/Mines/Fire_Mines_Level.tscn"),
-	preload("res://Scenes/Levels/Village/Village_Fire_3.tscn"),
+	preload("res://Scenes/Levels/Village/Village_Wind.tscn"),
+	"random",
+	"random",
+	"random",
+	"random",
 ]
 
 var current_level_index = 0
 var completed = []
+var instance
 
 var music = {
 	"monster": preload("res://Resources/music/ogg/monster.ogg"),
@@ -111,6 +117,10 @@ func timeout():
 func spawn_monster():
 	play_music("monster")
 	var enemy = preload("res://Scenes/Actors/Follower.tscn")
-	var instance = enemy.instance()
+	instance = enemy.instance()
 	add_child(instance)
 	instance.set_transform($Level/EnemySpawn.get_global_transform())
+
+func delete_monster():
+	if(instance):
+		instance.queue_free()

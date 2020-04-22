@@ -14,6 +14,7 @@ func _physics_process(delta):
 	
 func _on_WindArea_body_entered(body):
 	if(body is actor):
+		
 		this_body = body
 		is_active = true
 

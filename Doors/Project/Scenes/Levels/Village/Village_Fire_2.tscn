@@ -79,7 +79,7 @@ region_enabled = true
 region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="Door"]
-position = Vector2( 12.6379, 7.87755 )
+position = Vector2( 13.4623, 6.76224 )
 shape = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="Door"]

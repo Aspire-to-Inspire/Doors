@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://Scripts/Actors/Actor.gd"
 
 class_name Player
 
@@ -51,7 +51,7 @@ func hurt():
 func dying_finished():
 	emit_signal("Killed")
 	
-var directions = ["up", "right", "down", "left"]
+var directionsz = ["up", "right", "down", "left"]
 func direction2str(direction):
 	var angle = direction.angle()
 	angle += (3 * PI) / 8
@@ -60,7 +60,7 @@ func direction2str(direction):
 	var index = round((angle / PI) * 2)
 	if index >= 4:
 		index = 0
-	return directions[index]
+	return directionsz[index]
 
 
 func _on_AnimatedSprite_animation_finished():
