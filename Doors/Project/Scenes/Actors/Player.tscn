@@ -175,4 +175,5 @@ texture = ExtResource( 6 )
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "dead"
 frame = 16
+playing = true
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
