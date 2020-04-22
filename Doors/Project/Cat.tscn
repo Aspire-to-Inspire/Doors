@@ -22,4 +22,6 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+animation = "dead"
+frame = 17
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

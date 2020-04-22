@@ -9,6 +9,10 @@ var dead : bool = false
 
 onready var joystick_move := get_tree().get_root().get_node("Main/Canvas/UI/Joystick")
 
+func _init():
+	pass
+	#$AnimatedSprite.start("stand")
+
 func _physics_process(delta: float) -> void:
 	_move(delta)
 
@@ -23,6 +27,7 @@ func _move(delta: float) -> void:
 				collision.collided(self)
 		var walk = direction2str(slide.normalized())
 		$AnimatedSprite.play(walk)
+		
 		#$AnimationPlayer.play(walk)
 #		if slide and get_slide_count() != 0:
 #			for i in get_slide_count():
@@ -31,18 +36,16 @@ func _move(delta: float) -> void:
 #					collision.get_collider().collided(self)
 	else:
 		$Ray.set_enabled(false)
-		$AnimatedSprite.stop()
+		#$AnimatedSprite.stop()
+		if not $AnimatedSprite.animation == "stand":
+			$AnimatedSprite.play("stand")
 		#$AnimationPlayer.stop()
-var timer:Timer
+
 func hurt():
 	if not dead:
-		#$AnimationPlayer.play("dead")
+		#$AnimationPlayer.play("dead")		
 		$AnimatedSprite.play("dead")
 		set_physics_process(false)
-		#timer.connect("timeout", self, "queue_free")
-		#timer.set_wait_time(2)
-		#timer.start()
-		#dying_finished()
 		dead = true
 
 func dying_finished():
@@ -63,3 +66,5 @@ func direction2str(direction):
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "dead":
 		dying_finished()
+
+
