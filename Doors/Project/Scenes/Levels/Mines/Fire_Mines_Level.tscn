@@ -7,7 +7,7 @@
 [ext_resource path="res://Resources/Sprites/tileset.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/Trigger.tscn" type="PackedScene" id=6]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends \"res://Scripts/Levels/Base.gd\"
 export var texture = preload(\"res://Resources/Sprites/bg_cave.png\")
 
@@ -25,11 +25,10 @@ func _on_Trigger_entered(body):
 		$Door2.set_visible(not $Door2.visible)
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.9951, 13.5596 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "punch"
+[sub_resource type="Animation" id=3]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -46,7 +45,7 @@ tracks/0/keys = {
 
 [node name="Level" type="Node2D"]
 position = Vector2( 48, 76 )
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -93,9 +92,9 @@ region_rect = Rect2( 96.5874, 67.3848, 30.5772, 30.1139 )
 
 [node name="Collision" type="CollisionShape2D" parent="Door2"]
 position = Vector2( 17.4595, 16.5629 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Animation" type="AnimationPlayer" parent="Door2"]
-anims/punch = SubResource( 2 )
+anims/punch = SubResource( 3 )
 [connection signal="state_changed" from="Door" to="." method="_on_Door_state_changed"]
 [connection signal="trigger_entered" from="Trigger" to="." method="_on_Trigger_entered"]
