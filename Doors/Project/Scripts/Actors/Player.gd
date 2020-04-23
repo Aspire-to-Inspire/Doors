@@ -50,6 +50,7 @@ func hurt():
 
 func dying_finished():
 	emit_signal("Killed")
+	SilentWolf.Scores.persist_score(SilentWolf.player_name, get_parent().level_index)
 	
 var directionsz = ["up", "right", "down", "left"]
 func direction2str(direction):
