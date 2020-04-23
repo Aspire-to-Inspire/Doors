@@ -5,6 +5,7 @@
 [ext_resource path="res://Resources/Sprites/menu.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=4]
 [ext_resource path="res://LeaderBoard.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -21,11 +22,6 @@ region_rect = Rect2( 0, 0, 230, 68 )
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 230, 68 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 15
-outline_color = Color( 1, 1, 1, 0 )
-font_data = ExtResource( 1 )
 
 [node name="LeaderBoard" type="Control"]
 anchor_right = 1.0
@@ -56,13 +52,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="leaderboard"]
-margin_left = 12.6403
-margin_top = 16.7058
-margin_right = 163.64
-margin_bottom = 107.706
+margin_left = 13.0
+margin_top = 17.0
+margin_right = 164.0
+margin_bottom = 108.0
 rect_scale = Vector2( 1.49091, 1.09877 )
 custom_fonts/font = SubResource( 1 )
-text = "leader
+text = "Leader
 board"
 align = 1
 valign = 1
@@ -98,18 +94,13 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Results" type="Label" parent="."]
-margin_left = 15.2674
-margin_top = 126.053
-margin_right = 166.267
-margin_bottom = 174.053
-rect_scale = Vector2( 1.49091, 2.13877 )
-rect_clip_content = true
-custom_fonts/font = SubResource( 5 )
-align = 1
-max_lines_visible = 5
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 20.0
+margin_top = 133.0
+margin_right = 238.0
+margin_bottom = 329.0
+custom_fonts/font = ExtResource( 6 )
 __meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
+"_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -27,3 +27,10 @@ func _on_Button_pressed():
 
 func _on_leaderboard_pressed():
 	get_tree().change_scene("res://LeaderBoard.tscn")
+
+
+
+
+
+func _on_LineEdit2_text_changed(new_text):
+	SilentWolf.player_name = new_text

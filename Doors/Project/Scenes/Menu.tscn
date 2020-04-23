@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/settings_button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Sprites/Crone2.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/settings.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=10]
 
 [sub_resource type="DynamicFont" id=5]
 size = 40
@@ -29,8 +30,6 @@ region_rect = Rect2( 0, 0, 230, 68 )
 [sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 4 )
@@ -106,22 +105,15 @@ stream = ExtResource( 6 )
 autoplay = true
 bus = "Music"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 12.7273
-margin_top = 185.061
-margin_right = 163.727
-margin_bottom = 233.061
-rect_scale = Vector2( 1.49091, 1.09877 )
-focus_mode = 0
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_vertical = 4
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.94902, 0.509804, 0, 1 )
-text = "Name"
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 31.9998
+margin_top = 195.999
+margin_right = 182.0
+margin_bottom = 250.999
+custom_fonts/font = ExtResource( 10 )
+placeholder_text = "Name"
 __meta__ = {
-"_editor_description_": ""
+"_edit_use_anchors_": false
 }
 
 [node name="settings" parent="." instance=ExtResource( 9 )]
@@ -153,4 +145,5 @@ position = Vector2( 30.7669, 17.0843 )
 scale = Vector2( 1.27273, 0.802469 )
 texture = ExtResource( 8 )
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
+[connection signal="text_changed" from="LineEdit2" to="." method="_on_LineEdit2_text_changed"]
 [connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
