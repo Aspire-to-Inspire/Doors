@@ -8,7 +8,8 @@ func _ready():
 	
 func _on_Door_state_changed(door, toggle):
 	if door.door_type == 1:
-		timer.wait_time = 10
+		timer.wait_time = progress.max_value
+		timer.start()
 		get_node("/root/Main").delete_monster()
 		_on_win(door)
 	

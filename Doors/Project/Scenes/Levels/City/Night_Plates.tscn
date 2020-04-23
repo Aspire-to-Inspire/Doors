@@ -43,7 +43,7 @@ position = Vector2( 80, 80 )
 position = Vector2( 79, 143 )
 
 [node name="EnemySpawn" type="Position2D" parent="."]
-position = Vector2( 111, 143 )
+position = Vector2( 11.2995, 47.2716 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.207843, 0.188235, 0.188235, 1 )

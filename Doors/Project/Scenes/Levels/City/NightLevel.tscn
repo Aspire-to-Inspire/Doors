@@ -59,17 +59,20 @@ position = Vector2( 64, 0 )
 position = Vector2( 96, 0 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
-position = Vector2( 79, 143 )
+position = Vector2( 79.6147, 147.61 )
 
 [node name="EnemySpawn" type="Position2D" parent="."]
-position = Vector2( 143, 144 )
+position = Vector2( 149.147, 149.225 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.207843, 0.188235, 0.188235, 1 )
 
 [node name="WeaponThing" type="Area2D" parent="."]
-position = Vector2( 79.2729, 99.6142 )
+position = Vector2( 79.5803, 89.1641 )
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponThing"]
 shape = SubResource( 2 )
