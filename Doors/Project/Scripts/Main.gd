@@ -1,5 +1,5 @@
 extends Node2D
-
+var player_name = "name"
 var level_index = 0
 var levels = [
 	preload("res://Scenes/Levels/Intro.tscn"),
@@ -66,6 +66,7 @@ func set_player_to_spawn():
 func _on_Level_level_win():
 	#call it delayed so it doesn't fuck with you
 	call_deferred("load_next_level")
+	print("level: "+str(level_index))
 
 func load_next_level():
 	if has_node("Level"):
