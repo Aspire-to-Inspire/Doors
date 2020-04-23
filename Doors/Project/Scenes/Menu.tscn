@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sprites/menu.png" type="Texture" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://Resources/Sprites/button_one.png" type="Texture" id=5]
 [ext_resource path="res://Resources/music/ogg/menu.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/settings_button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/Sprites/Crone2.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/settings.tscn" type="PackedScene" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 40
 font_data = ExtResource( 3 )
 
@@ -25,9 +26,23 @@ region_rect = Rect2( 0, 0, 230, 68 )
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 230, 68 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 230, 68 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 230, 68 )
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -47,7 +62,7 @@ margin_top = 64.0
 margin_right = 241.0
 margin_bottom = 167.0
 rect_min_size = Vector2( 136, 79 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.94902, 0.509804, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -78,7 +93,7 @@ margin_top = 3.06171
 margin_right = 160.727
 margin_bottom = 51.0617
 rect_scale = Vector2( 1.49091, 1.09877 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Start "
 align = 1
 valign = 1
@@ -91,6 +106,24 @@ stream = ExtResource( 6 )
 autoplay = true
 bus = "Music"
 
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 12.7273
+margin_top = 185.061
+margin_right = 163.727
+margin_bottom = 233.061
+rect_scale = Vector2( 1.49091, 1.09877 )
+focus_mode = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_vertical = 4
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.94902, 0.509804, 0, 1 )
+text = "Name"
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="settings" parent="." instance=ExtResource( 9 )]
 visible = false
 
@@ -99,4 +132,25 @@ margin_left = 202.523
 margin_top = 11.0013
 margin_right = 263.523
 margin_bottom = 51.0013
+
+[node name="leaderboard" type="Button" parent="."]
+pause_mode = 2
+margin_left = 13.9017
+margin_top = 11.0013
+margin_right = 74.9017
+margin_bottom = 51.0013
+rect_scale = Vector2( 0.733333, 1.215 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Sprite" type="Sprite" parent="leaderboard"]
+position = Vector2( 30.7669, 17.0843 )
+scale = Vector2( 1.27273, 0.802469 )
+texture = ExtResource( 8 )
 [connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
