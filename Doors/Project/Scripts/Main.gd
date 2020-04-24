@@ -3,6 +3,7 @@ var player_name = "name"
 var level_index = 0
 var levels = [
 	preload("res://Scenes/Levels/Intro.tscn"),
+	preload("res://Scenes/Levels/City/NightLevel3.tscn"),
 	preload("res://Scenes/Levels/Mines/Level1.tscn"),
 	preload("res://Scenes/Levels/Mines/Level3.tscn"),
 	preload("res://Scenes/Levels/Mines/Level4.tscn"),
@@ -66,9 +67,11 @@ func set_player_to_spawn():
 func _on_Level_level_win():
 	#call it delayed so it doesn't fuck with you
 	call_deferred("load_next_level")
+	$Player/Ray/Sprite.hide()
 	print("level: "+str(level_index))
 
 func load_next_level():
+	
 	if has_node("Level"):
 		$Level.queue_free()
 		get_node("/root/Main").remove_child($Level)

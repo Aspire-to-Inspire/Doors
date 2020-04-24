@@ -6,11 +6,14 @@
 [ext_resource path="res://Resources/2DLight.png" type="Texture" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Sprites/progress_under.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Sprites/main character.png" type="Texture" id=7]
+[ext_resource path="res://Resources/right.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.35078
+height = 8.5138
+
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/transparent = Color( 0, 0, 0, 0 )
 shader_param/inner = Color( 0.262745, 0.45098, 0.85098, 1 )
@@ -21,7 +24,7 @@ shader_param/soft_edge = 0.04
 shader_param/center = Vector2( 0.5, 0.8 )
 shader_param/OCTAVES = 6
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform vec4 transparent : hint_color;
@@ -125,8 +128,8 @@ void fragment(){
 
 "
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/transparent = Color( 0, 0, 0, 0 )
 shader_param/inner = Color( 0.878431, 0.862745, 0.835294, 0.713726 )
 shader_param/outer = Color( 0.94902, 0.894118, 0.0705882, 1 )
@@ -140,28 +143,27 @@ shader_param/OCTAVES = 6
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.40583, 3.923 )
 shape = SubResource( 1 )
-
-[node name="sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -3 )
-texture = ExtResource( 7 )
-vframes = 6
-hframes = 6
-frame = 30
-region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="Ray" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 0, 12 )
+cast_to = Vector2( 0, 17 )
 collision_mask = 2
+
+[node name="Sprite" type="Sprite" parent="Ray"]
+modulate = Color( 0.984314, 0.219608, 0.164706, 1 )
+position = Vector2( 0, 13 )
+rotation = 1.5708
+scale = Vector2( 0.0465323, 0.039235 )
+texture = ExtResource( 7 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
 animation = "stand"
 
 [node name="Freezer" type="Sprite" parent="."]
 visible = false
-material = SubResource( 4 )
+material = SubResource( 2 )
 position = Vector2( -1.04387, -2.33592 )
 scale = Vector2( 10, 8 )
 texture = ExtResource( 6 )
@@ -175,7 +177,7 @@ color = Color( 0.972549, 0.843137, 0.576471, 1 )
 
 [node name="FlameShader" type="Sprite" parent="Light2D"]
 visible = false
-material = SubResource( 3 )
+material = SubResource( 4 )
 position = Vector2( 1.45995, -4.50386 )
 scale = Vector2( 0.796171, 0.783572 )
 texture = ExtResource( 5 )
