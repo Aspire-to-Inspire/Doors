@@ -1,5 +1,5 @@
 extends Node
-var player_name = ""
+var player_name = "player"
 const version = "0.6.1"
 
 onready var Auth = Node.new()
