@@ -9,7 +9,7 @@ var is_active = true
 	
 func make_somth():
 	if(Count == Owner.get_code()):
-		StatusColor.modulate = Color(1,0,0)
+		StatusColor.modulate = Color(0,1,0)
 		Owner.set_course_counter()
 		if (Owner.get_course_counter() == 4):
 			get_tree().set_group("Plate","is_active",false)
