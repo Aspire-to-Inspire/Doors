@@ -30,24 +30,24 @@ position = Vector2( 111, 143 )
 [node name="PressurePlate" parent="." groups=[
 "Plate",
 ] instance=ExtResource( 5 )]
-position = Vector2( 40.4417, 72.148 )
+position = Vector2( 40.0445, 71.7508 )
 Count = 1
 
 [node name="PressurePlate4" parent="." groups=[
 "Plate",
 ] instance=ExtResource( 5 )]
-position = Vector2( 120.678, 117.766 )
+position = Vector2( 120.678, 119.752 )
 Count = 3
 
 [node name="PressurePlate2" parent="." groups=[
 "Plate",
 ] instance=ExtResource( 5 )]
-position = Vector2( 118.09, 73.7657 )
+position = Vector2( 120.473, 71.751 )
 Count = 2
 
 [node name="PressurePlate3" parent="." groups=[
 "Plate",
 ] instance=ExtResource( 5 )]
-position = Vector2( 41.4123, 117.766 )
+position = Vector2( 39.8234, 119.752 )
 Count = 4
 [connection signal="state_changed" from="Door" to="." method="_on_Door_state_changed"]
