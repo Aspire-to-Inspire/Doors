@@ -106,11 +106,12 @@ autoplay = true
 bus = "Music"
 
 [node name="LineEdit2" type="LineEdit" parent="."]
-margin_left = 31.9998
-margin_top = 195.999
-margin_right = 182.0
-margin_bottom = 250.999
+margin_left = 47.4754
+margin_top = 198.443
+margin_right = 197.476
+margin_bottom = 253.443
 custom_fonts/font = ExtResource( 10 )
+align = 1
 placeholder_text = "Name"
 __meta__ = {
 "_edit_use_anchors_": false
